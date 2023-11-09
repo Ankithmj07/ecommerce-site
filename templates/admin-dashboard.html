@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="shortcut icon" type="image/x-icon" href="\static\images\technology.png" />
+    <!--chart js-->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body onload="loadDashboardData()">
+    <!--Navigation Start-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand">
+                <img  src="\static\images\technology.png" style="width: 30px;"/><span style="margin-left: 10px;">GadgetsWave</span>
+            </a>
+
+        </div>
+
+    </nav><br><br>
+    <div class="container">
+        <h2 class="text-center">Analytics Dashboard</h2><br>
+
+        <!--Data points start-->
+        <div class="row">
+            <div class="col-3">
+                <!--card start-->
+                <div style="background-color: teal; color: white;" class="card">
+                    <div class="card-body">
+                        <h3 class="card-title" id="todayVisitors"></h3>
+                        <h5>Today's Visitors</h5>
+                    </div>
+                </div>                
+                <!--card end-->
+
+            </div>
+            <div class="col-3">
+                <!--card start-->
+                <div style="background-color: yellowgreen; color: white;" class="card">
+                    <div class="card-body">
+                        <h3 class="card-title" id="todayAdClicks"></h3>
+                        <h5>Today's Ad Clicks</h5>
+                    </div>
+                </div>                
+                <!--card end-->
+                
+            </div>
+            <div class="col-3">
+                <!--card start-->
+                <div style="background-color: rgb(67, 66, 66); color: white;" class="card">
+                    <div class="card-body">
+                        <h3 class="card-title" id="todayProductClicks"></h3>
+                        <h5>Today's Product Clicks</h5>
+                    </div>
+                </div>                
+                <!--card end-->
+                
+            </div>
+            <div class="col-3">
+                <!--card start-->
+                <div style="background-color: rgb(0, 60, 128); color: white;" class="card">
+                    <div class="card-body">
+                        <h3 class="card-title">10</h3>
+                        <h5>Today's Orders</h5>
+                    </div>
+                </div>                
+                <!--card end-->
+                
+            </div>
+        </div><br><br>
+        <!--Data points end-->
+
+        <!--Bar charts and orders Table Start-->
+        <div class="row">
+            <div class="col-6">
+                <h5 class="text-center">Visitor's Trend Over Months</h5><br>
+                <canvas id="myBarChart" width="600" height="300"></canvas>
+            </div>
+            <div class="col-6">
+                <h5 class="text-center">Recent Orders</h5><br>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <td>Sl</td>
+                            <td>Order Date</td>
+                            <td>Customer</td>
+                            <td>Products</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>30-08-2023</td>
+                            <td>Sachin</td>
+                            <td>Apple Watch</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>30-08-2023</td>
+                            <td>Virat</td>
+                            <td>iPhone</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>30-08-2023</td>
+                            <td>Rohit</td>
+                            <td>Homepad</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!--Bar charts and orders Table end-->
+
+    </div>
+    <script>
+        // Sample data
+        
+
+        function loadDashboardData() {
+        // AJAX for logging visitors
+
+        var xhttpTodayVisitors = new XMLHttpRequest();
+        xhttpTodayVisitors.onreadystatechange = function () {
+          if (this.readyState == 4 && this.status == 200) {
+            console.log(this.responseText);
+            var jsonData = JSON.parse(this.responseText);
+
+            document.getElementById("todayVisitors").innerHTML =jsonData[0].visitor_count;
+          }
+        };
+        xhttpTodayVisitors.open("GET","http://127.0.0.1:8080/today-visitors",true);
+        xhttpTodayVisitors.send();
+
+        // AJAX code for Today's Ads Clicks
+
+        var xhttpTodayAds = new XMLHttpRequest();
+        xhttpTodayAds.onreadystatechange = function () {
+          if (this.readyState == 4 && this.status == 200) {
+            console.log(this.responseText);
+            var jsonData = JSON.parse(this.responseText);
+
+            document.getElementById("todayAdClicks").innerHTML =jsonData[0].clicks;
+          }
+        };
+        xhttpTodayAds.open("GET","http://127.0.0.1:8080/today-ad-clicks",true);
+        xhttpTodayAds.send();
+        
+        // AJAX code for today's Product Clicks
+
+        var xhttpTodayProducts = new XMLHttpRequest();
+        xhttpTodayProducts.onreadystatechange = function () {
+          if (this.readyState == 4 && this.status == 200) {
+            console.log(this.responseText);
+            var jsonData = JSON.parse(this.responseText);
+
+            document.getElementById("todayProductClicks").innerHTML =jsonData[0].product_clicks;
+          }
+        };
+        xhttpTodayProducts.open("GET","http://127.0.0.1:8080/today-products-clicks",true);
+        xhttpTodayProducts.send();
+
+        // AJAX code for Vistors Trend
+
+        var xhttpVisitorTrnd = new XMLHttpRequest();
+        xhttpVisitorTrnd.onreadystatechange = function () {
+          if (this.readyState == 4 && this.status == 200) {
+            console.log(this.responseText);
+            var jsonData = JSON.parse(this.responseText);
+
+            var monthArr=[]
+
+            for(var m=1;m<=12;m++)
+            {
+                matchResult= chkValueInJson(jsonData,m)
+                if(matchResult>0)
+                {
+                    monthArr.push(matchResult)
+                }
+                else
+                {
+                    monthArr.push(0)
+                }
+            }
+            var labels = ['Jan', 'Feb', 'Mar', 'Apr', 'May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+            var data = monthArr
+    
+        // Create the bar chart
+            var ctx = document.getElementById('myBarChart').getContext('2d');
+        var myBarChart = new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: labels,
+            datasets: [{
+              label: "Visitor's Trends",
+              data: data,
+              backgroundColor: 'rgba(75, 192, 192, 0.2)', // Bar color
+              borderColor: 'rgba(75, 192, 192, 1)', // Border color
+              borderWidth: 1
+            }]
+          },
+          options: {
+            scales: {
+              y: {
+                beginAtZero: true
+              }
+            }
+          }
+        });
+
+
+            
+          }
+        }
+        xhttpVisitorTrnd.open("GET","http://127.0.0.1:8080/visitor-trend",true);
+        xhttpVisitorTrnd.send();
+      }
+
+        function chkValueInJson(jsonData,value)
+        {
+            var jsonLength=jsonData.length
+            var match=0
+
+            for(var i=0;i<jsonLength;i++)
+            {
+                if(Number(jsonData[i].month)==Number(value))
+                {
+                    match=jsonData[i].monthly_visitors
+                    break
+                }
+            }
+            return match
+        }
+
+        </script>
+    
+    </body>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GadgetsWave</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="shortcut icon" type="image/x-icon" href="\static\images\technology.png" />
+
+    <style>
+        #order:hover{
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 style="margin-top: 100px;" class="text-center">Order Placed Successfully</h1>
+        <h5 class="text-center" id="orderID"> 
+            <b>123456789</b>
+        </h5>
+        <center>
+            <img style="width: 400px;" src="https://cdn.dribbble.com/users/282075/screenshots/4756095/icon_confirmation.gif"/>
+        </center>
+        <p class="text-center">
+            <a id="order" href="/" style="text-decoration: none;">Shop More</a>
+        </p>
+    </div>
+    
+
+    <script>
+        //setTimeout(function(){ window.location = "/"; }, 5000); 
+
+        var orderIdHTML=''
+        var xhttpOrderDetails=new XMLHttpRequest
+        xhttpOrderDetails.onreadystatechange=function(){
+            if(this.readyState==4 && this.status==200)
+            {
+                jsonData=JSON.parse(this.responseText)
+ 
+                orderIdHTML+='<span>Order Id  : <b>BYAMJ'+jsonData[0].order_id+'</b></span>'
+                document.getElementById("orderID").innerHTML=orderIdHTML
+            }
+        }
+        xhttpOrderDetails.open("GET","http://127.0.0.1:8080/get-order-id",true)
+        xhttpOrderDetails.send()
+
+    </script>
+
+</body>
+</html>

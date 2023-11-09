@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="shortcut icon" type="image/x-icon" href="\static\images\technology.png" />
+
+
+    <!--js bundle cdn-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    
+    <style>
+        
+        body{
+            font-family: "Amazon Ember",Arial,sans-serif;
+        }
+
+        #password::placeholder{
+            color: #767676;
+            font-size: 12px;
+        }
+        ::placeholder{
+            color: #767676;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-3"></div>
+            <div class="col-6" style="background-color: white;margin-top: 1%;">
+                <div class="row" style="display: flex;justify-content: center;">
+                    <img style="width: 90px;" src="\static\images\technology2.png">
+                </div>
+                <div class="row" style="display: flex;justify-content: center;">
+                    <div style="width: 60%; border: 1px #D5D9D9 solid;border-radius: 7px;margin-top: 3%;">
+                        <div style="display: flex;justify-content: center;margin-top: 5%;">
+                            <h4 style="font-size: 28px;font-weight: 400;">Create Account</h4>
+                        </div>
+                        <div>
+                            <p>
+                                <label for="fullName" style="font-size: 13px;color: #111;font-weight: 700;margin-left: 6%;">Your name</label><br>
+                                <input class="form-control" style="font-size: 13px; width: 90%;border: 1px #aaa7a7 solid;border-radius: 7px;margin-left: 5%;" type="email" id="fullName" placeholder="First and last name">
+                                <span id="errName"></span>
+                            </p>
+                            <div>
+                                <label for="phone" style="font-size: 13px;color: #111;font-weight: 700;margin-left: 6%;">Mobile number</label>
+                                <div style="display: flex;margin-left: 5%;">
+                                    <select style="height: 32px; width: 20%;border: 1px #aaa7a7 solid; font-size: 12px;border-radius: 7px;margin-top: 1%;" class="form-control" id="countryCode">
+                                        <option value="+91" selected="selected">IN +91</option>
+                                    </select>
+                                    <input class="form-control" style="width: 70%;border: 1px #aaa7a7 solid;border-radius: 7px;margin-left: 5%;font-size: 13px;" type="text" id="phone" placeholder="Mobile number">
+                                </div>
+                                <span id="errPhone"></span>
+                                    
+                            </div>
+                        </div> 
+                            <div>
+                                <label for="email" style="font-size: 13px;color: #111;font-weight: 700;margin-left: 6%;">Email</label><br>
+                                <input class="form-control" style="width: 90%;border: 1px #aaa7a7 solid;border-radius: 7px;margin-left: 5%;font-size: 13px;" type="email" id="email" placeholder="Email address">
+                                <span id="errEmail"></span>
+                                <div id="mail">
+                                    
+                                </div>
+                            </div>
+                            <p>
+                                <label for="password" style="font-size: 13px;color: #111;font-weight: 700;margin-left: 6%;font-size: 13px;">Password</label><br>
+                                <input class="form-control" style="width: 90%;border: 1px #aaa7a7 solid;border-radius: 7px;margin-left: 5%;" type="password" id="password" placeholder="At least 6 characters">
+                                <span id="errPassword"></span>
+                            </p>
+                            <p>
+                                <label for="Confirmpassword" style="font-size: 13px;color: #111;font-weight: 700;margin-left: 6%;font-size: 13px;">Confirm Password</label><br>
+                                <input class="form-control" style="width: 90%;border: 1px #aaa7a7 solid;border-radius: 7px;margin-left: 5%;" type="password" id="confirmPassword" placeholder="At least 6 characters">
+                                <span id="errConfirmPassword"></span>
+                            </p>
+                            <p>
+                                <div style="font-size: 13px;color: #111;width: 90%;margin-left: 5%;">
+                                    To verify your number and email, we will send you a text message and an email with a temporary code.
+                                </div>
+                                <div id="changeButton">
+                                    
+                                </div>
+                                <span id="displayMsg" style="font-size: 12px;color: #BA0933;"></span>
+                            </p>
+                            <div style="width: 90%;margin-left: 5%;">
+                                <h6 style="font-size: 12px;color: #111;margin-top: 5%;">By continuing, you agree to Amazon's Conditions of Use and Privacy Notice.</h6>
+                            </div><br>
+                        </div>
+                    </div>
+                <div class="row">
+                    <div style="display: flex;justify-content: center;margin-top: 2%;">
+                        <span style="font-size: 13px;color: #111 ;">Already have an account?&nbsp;</span><a href="/CustomerLogin" style="text-decoration: none;color: #0066c0;font-size: 13px;">Sign in</a>
+                    </div><br>
+                    <br>
+                    
+                </div>
+
+            </div>
+            <div class="col-3"></div>
+        </div>
+    </div>
+
+
+    <div class="modal fade" id="accountCreated" tabindex="-1" role="dialog" aria-labelledby="orderConfirmationModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content" style="height: 200px;border: 1px solid #ced4da; border-radius: 9px;">
+                <div class="modal-body">
+                    <div style="display: flex;justify-content: center;margin-top: 10%;">
+                        <img style="width: 50px;" src="\static\images\success.png">
+                        <h4 style="font-size: 24px;font-weight: 600;margin-left: 3%;margin-top: 2%;">Account Created Successfully</h4>
+                    </div>
+                    <button class="btn" style="font-size: 13px;background-color: #ffd814;margin-top: 5%;margin-left: 45%;" onclick="signIn();">Sign in</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        var phoneotpButtonHTML=''
+
+        var phoneOtpHTML=''
+        phoneOtpHTML+='<span style="margin-left: 5%; font-size: 12px;color: #111;">We\'ve sent an OTP to the mobile number +919148868887.</span>'
+        phoneOtpHTML+='<label for="fullName" style="font-size: 13px;color: #111;font-weight: 700;margin-left: 6%;">Enter OTP</label><br>'
+        phoneOtpHTML+='<input class="form-control" style="width: 90%;border: 1px #aaa7a7 solid;border-radius: 7px;margin-left: 5%;font-size:13px;" type="email" id="phoneOTP" placeholder="OTP">'
+        phoneOtpHTML+='<span id="errorOtp" style="font-size:13px;margin-left:32%; color:#BA0933;"></span>'
+        phoneOtpHTML+='<div id="resendOTP" style="display: flex;justify-content: center;">'
+        phoneOtpHTML+='<a href="#" style="text-decoration: none;color: #0066c0;font-size: 13px;margin-top:1%;margin-left:2%;">Submit</a><a href="#" style="text-decoration: none;color: #007185;font-size: 13px;margin-top:1%;margin-left:3%;">Resend OTP</a>'
+        phoneOtpHTML+='</div>'
+
+        //function phoneOtpButton(){
+            //document.getElementById('sendPhoneOTP').innerHTML=phoneotpButtonHTML
+        //}
+
+
+       
+        
+
+        var Continuebutton='<button onclick="validate();" class="btn" style="margin-top: 3%; width: 90%; background-color: #ffd814;font-size: 12px;font-weight: 600; color: #0F1111;border-radius: 7px;margin-left: 5%;">Continue</button>'
+    
+        document.getElementById('changeButton').innerHTML=Continuebutton
+
+        var SubmitButton='<button onclick="submit();" id="sumbitDailog" class="btn" style="margin-top: 3%; width: 90%; background-color: #ffd814;font-size: 12px;font-weight: 600; color: #0F1111;border-radius: 7px;margin-left: 5%;">Submit</button>'
+
+
+        var emailOtpHTML=''
+
+        emailOtpHTML+='<span style="margin-left: 5%; font-size: 12px;color: #111;">We\'ve sent an OTP to the email mjankith007@gmail.com.</span>'
+        emailOtpHTML+='<label for="fullName" style="font-size: 13px;color: #111;font-weight: 700;margin-left: 6%;">Enter OTP</label><br>'
+        emailOtpHTML+='<input class="form-control" style="width: 90%;border: 1px #aaa7a7 solid;border-radius: 7px;margin-left: 5%;font-size: 13px;" type="email" id="emailOTP" placeholder="OTP">'
+        emailOtpHTML+='<span id="errEmailOtp"></span>'
+        emailOtpHTML+='<a href="#" onclick="resendOTP();" style="text-decoration:none;font-size:12px;color:#0066c0;margin-left:45%">Resend</a>' 
+          
+
+        
+        
+        
+
+        function validate(){
+            var name = document.getElementById("fullName").value;
+
+            if(name=='')
+            {
+                document.getElementById('errName').innerHTML='<span id="errName" style="color:#c40000;font-size:12px;margin-left:17px">Please enter your name</span>'
+                return false
+            }
+            else{
+                document.getElementById('errName').innerHTML=''
+            }
+            var regxName=/^[A-Za-z. ]+$/
+            var validName=name.match(regxName)
+
+            if(!validName){
+                document.getElementById('errName').innerHTML='<span id="errName" style="color:#c40000;font-size:12px;margin-left:17px">Please enter valid name</span>'
+                return false
+            }
+            else{
+                document.getElementById('errName').innerHTML=''
+            }
+
+            var mobile = document.getElementById("phone").value;
+            
+
+            if(mobile=='')
+            {
+                document.getElementById('errPhone').innerHTML='<span id="errPhone" style="color:#c40000;font-size:12px;margin-left:17px">Please enter mobile number</span>'
+                return false
+            }
+            else{
+                document.getElementById('errPhone').innerHTML=''
+            }
+
+            var regxMobile=/^[6-9]\d{9}$/
+            var validMobile=mobile.match(regxMobile)
+
+            if(!validMobile){
+                document.getElementById('errPhone').innerHTML='<span id="errPhone" style="color:#c40000;font-size:12px;margin-left:17px">Please enter valid mobile number</span>'
+                return false
+            }
+            else{
+                document.getElementById('errPhone').innerHTML=''
+            }
+
+            var email = document.getElementById("email").value;
+
+            if(email=='')
+            {
+                document.getElementById('errEmail').innerHTML='<span id="errEmail" style="color:#c40000;font-size:12px;margin-left:17px">Please enter email</span>'
+                return false
+            }
+            else{
+                document.getElementById('errEmail').innerHTML=''
+            }
+            var regxEmail=/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/
+            var validEmail=email.match(regxEmail)
+            if(!validEmail){
+                document.getElementById('errEmail').innerHTML='<span id="errEmail" style="color:#c40000;font-size:12px;margin-left:17px">Please enter valid email</span>'
+                return false
+            }
+            else{
+                document.getElementById('errEmail').innerHTML=''
+            }
+
+            var password=document.getElementById('password').value
+
+            if(password==''){
+                document.getElementById('errPassword').innerHTML='<span id="errPassword" style="color:#c40000;font-size:12px;margin-left:17px">Please enter password</span>'
+                return false
+            }
+            else{
+                document.getElementById('errPassword').innerHTML=''
+            }
+
+            var regxPassword=/^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/
+            var validPassword=password.match(regxPassword)
+            if(!validPassword){
+                document.getElementById('errPassword').innerHTML='<span id="errPassword" style="color:#c40000;font-size:12px;margin-left:17px">Password must contain atleast an uppercase,digit,special symbol</span>'
+                return false
+            }
+            else{
+                document.getElementById('errPassword').innerHTML=''
+            }
+
+            var confirmPassword=document.getElementById('confirmPassword').value
+
+            if(confirmPassword==''){
+                document.getElementById('errConfirmPassword').innerHTML='<span id="errConfirmPassword" style="color:#c40000;font-size:12px;margin-left:17px">Please confirm your password</span>'
+                return false
+            }
+            else{
+                document.getElementById('errConfirmPassword').innerHTML=''
+            }
+
+            if(confirmPassword!=password){
+                document.getElementById('errConfirmPassword').innerHTML='<span id="errConfirmPassword" style="color:#c40000;font-size:12px;margin-left:17px">Your password didn\'t match</span>'
+                return false
+            }
+            else{
+                document.getElementById('errConfirmPassword').innerHTML=''
+            }
+
+            
+
+            var xhttpchkEmailExist=new XMLHttpRequest
+            xhttpchkEmailExist.onreadystatechange=function(){
+                if(this.readyState==4 && this.status==200){
+                    console.log(this.responseText)
+                    Data=this.responseText
+
+                    if(Data==0){
+                        document.getElementById('mail').innerHTML=emailOtpHTML
+                        var xhttpSendotp=new XMLHttpRequest
+                        xhttpSendotp.onreadystatechange=function(){
+                            if(this.readyState==4 && this.status==200){
+                                console.log(this.responseText)
+                               
+                                document.getElementById('changeButton').innerHTML=SubmitButton
+                                document.getElementById('errEmail').innerHTML=''
+                            
+                            }
+                        }
+                        xhttpSendotp.open("POST","http://127.0.0.1:8080/verifyEmail",true)
+                        xhttpSendotp.setRequestHeader("Content-type","application/x-www-form-urlencoded")
+                        xhttpSendotp.send('userEmail='+email)
+                        
+                    }
+                    else{
+                        document.getElementById('errEmail').innerHTML='<span id="errEmail" style="color:#c40000;font-size:12px;margin-left:17px">Your email is already Registered. Sign in</span>'
+                    }
+
+                }
+            }
+            xhttpchkEmailExist.open("POST","http://127.0.0.1:8080/chkemail",true)
+            xhttpchkEmailExist.setRequestHeader("Content-type","application/x-www-form-urlencoded")
+            xhttpchkEmailExist.send('email='+email)
+
+            
+
+            
+
+            
+
+        }
+
+        function submit(){
+            var otp=document.getElementById('emailOTP').value
+            var name = document.getElementById("fullName").value;
+            var mobile = document.getElementById("phone").value;
+            var email = document.getElementById("email").value;
+            var password=document.getElementById('password').value;
+
+            var xhttpvalidateOTP=new XMLHttpRequest
+            xhttpvalidateOTP.onreadystatechange=function(){
+                if(this.readyState==4 && this.status==200){
+                    var res=this.responseText
+                    console.log(res)
+
+                    if(res==0){
+                        document.getElementById('errEmailOtp').innerHTML='<span id="errEmailOtp" style="color:#c40000;font-size:12px;margin-left:17px;margin-left:33.5%;">Incorrect OTP. Try again</span><br>'
+                        return false
+                    }
+                    else{
+                        document.getElementById('errEmailOtp').innerHTML=''
+
+                        var xhttpSendDetails=new XMLHttpRequest
+                        xhttpSendDetails.onreadystatechange=function(){
+                            if(this.readyState==4 && this.status==200){
+                                console.log(this.responseText)
+                                window.location.href='/CustomerLogin'
+                            }
+                        }
+
+                    
+                        xhttpSendDetails.open("POST","http://127.0.0.1:8080/insert-customer-Details",true)
+                        xhttpSendDetails.setRequestHeader("Content-type","application/x-www-form-urlencoded")
+                        xhttpSendDetails.send('Name='+name+'&Email='+email+'&PhoneNumber='+mobile+'&Password='+password)                        
+                        }
+                        
+                    }
+                }
+
+            xhttpvalidateOTP.open("POST","http://127.0.0.1:8080/validateEmailOtp",true)
+            xhttpvalidateOTP.setRequestHeader("Content-type","application/x-www-form-urlencoded")
+            xhttpvalidateOTP.send('userOtp='+otp)
+        }
+
+        function resendOTP(){
+            validate()
+        }
+
+        function signIn(){
+            window.location.href='/CustomerLogin'
+        }
+
+    </script>
+    
+</body>
+</html>

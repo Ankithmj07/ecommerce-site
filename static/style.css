@@ -1,0 +1,143 @@
+@media only screen and (max-width: 1536px){
+    .mypromo{
+        height: 580px;
+    }
+    #apple-event{
+        margin-top: 40px;
+    }
+
+    .pro14{
+        width: 34.5%;
+        margin-top: 40px;
+        margin-left: 32%;
+    }
+    #watch8{
+        width: 97%;
+        margin-left: 1%;
+    }
+    #tradein{
+        width: 100%;
+        margin-left: 0;
+        margin-top: 5.5%;
+    }
+    #macair{
+        width: 90%;
+        margin-left: 4.8%;
+        margin-top: 80px;
+    }
+    #myhr{
+        width: 225px;
+        margin-left: 50px;
+    }
+    #hompod{
+        width: 85%;
+        margin-left: 8%;
+        margin-top: 6%;
+    }
+}
+
+
+
+
+
+
+
+@media only screen and (max-width: 1280px) {
+
+    .mypromo{
+        height: 530px;
+    }
+    #apple-event{
+        margin-top: 60px;
+    }
+
+    .pro14{
+        width: 36.5%;
+        margin-top: 42px;
+        margin-left: 31%;
+    }
+    #watch8{
+        width: 97%;
+        margin-left: 2%;
+        margin-top: 22px;
+    }
+    #tradein{
+        width: 100%;
+        margin-left: 0;
+        margin-top: 68px;
+    }
+    #macair{
+        width: 90%;
+        margin-left: 4%;
+        margin-top: 80px;
+    }
+    #myhr{
+        width: 200px;
+        margin-left: 35px;
+    }
+    #hompod{
+        width: 85%;
+        margin-left: 8%;
+        margin-top: 11%;
+    }
+}
+
+.myslider{
+    width: 85%;
+}
+
+
+.container-fluid .slider{
+    position: relative;
+    overflow: hidden;
+}
+
+.container-fluid .slider .slide{
+    z-index: 5;
+    position: relative;
+    width: 100%;
+    clip-path: inset(0 0 0 100%);
+}
+
+.container-fluid .slider .slide.active{
+    clip-path: inset(0 0 0 0);
+    transition: 1s;
+    transition-property: clip-path;
+}
+
+.container-fluid .slider .slide img{
+    z-index: 1;
+    width: 100%;
+}
+
+.container-fluid .slider .slide .info{
+    width: 100%;
+    position: absolute;
+    top: 0;
+    display: flex;
+    padding-top: 47.5%;
+    padding-left: 6.5%;
+}
+
+.navigation{
+    display: flex;
+    justify-content: center;
+}
+
+.navigation .my-btn{
+    width: 9px;
+    height: 9px;
+    background-color: #86868b;
+    margin: 8px;
+    border-radius: 50%;
+}
+
+.navigation .my-btn.active{
+    background-color: black;
+}
+.navigation .my-btn:hover{
+    cursor: pointer;
+}
+.container-fluid .slider .slide:hover{
+    cursor: pointer;
+}

@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buy now</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="shortcut icon" type="image/x-icon" href="\static\images\technology.png" />
+    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+
+
+    <!--js bundle cdn-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    
+
+    <style>
+        @import url("https://fonts.googleapis.com/css?family=Poppins");
+        body{
+            font-family: 'SF Pro Display','SF Pro Icons','Helvetica Neue','Helvetica','Arial',sans-serif;
+            background-color: white;
+            overflow-x: hidden;
+        }
+
+        .imageHover:hover{
+            cursor: pointer;
+        }
+        .modal-dialog{
+            font-family: 'Poppins';
+        }
+        
+
+        
+    </style>
+</head>
+<body>
+    
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand">
+                <img  src="\static\images\technology.png" style="width: 30px;"/><span style="margin-left: 10px;">GadgetsWave</span>
+            </a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row" style="background-color: #f0f0f0;border-bottom: 1px #D5D9D9 solid;">
+            <div style="height: 70px; display: flex;justify-content: center;align-items: center;">
+                <h4 style="font-size: 28px;font-weight: 400;color: #0F1111;">Checkout</h4>
+            </div>
+        </div><br>
+        <div class="row">
+            <div class="col-1"></div>
+            <div class="col-7">
+                <div class="row" id="defaddress">
+                    
+                </div>
+                <hr style="height: 0.7px;">
+                <div class="row">
+                    <div style="display: flex;justify-content: space-between;">
+                        <div>
+                            <h3 style="font-size: 18px;font-weight: 600;color: #0F1111;">2&nbsp;&nbsp;Payment method</h3>
+                        </div>
+                        <div style="margin-right: 0;">
+                            <h4 style="font-size: 14px;color: #333;">Pay on delivery(Cash/Card)</h4>
+                            <span style="font-size: 12px; color: #333;line-height: 3px;">*Other Payment options are curently Unavailable</span>
+                        </div>
+                        <div>
+                            <a href="#" style="text-decoration: none;font-size: 14px;color: #007185;">Change</a>
+                        </div>
+                    </div>
+                </div>
+                <hr style="height: 0.7px;">
+                <div class="row">
+                    <div>
+                        <h3 style="font-size: 18px;font-weight: 600;color: #0F1111;">3&nbsp;&nbsp;Review items and delivery</h3>
+                    </div>   
+                </div><br>
+                <div id="BuyNowProduct">
+                    
+                </div>
+                <hr style="height: 2px;">
+                <div>
+                    <h5 style="font-size: 12px;color: #565959;">Need to add more items to your order? Continue shopping on the <a href="index.html" style="text-decoration: none;color: #007185;">GadgetsWave.in homepage</a></h5>
+                </div>
+            </div>
+            <div class="col-3" style="position: sticky;">
+                <div style="width: 100%; border: 1px #D5D9D9 solid;border-radius: 8px;margin-left: 10%;">
+                    <div class="row">
+                        <div style="display: flex;justify-content: center;align-items: center;margin-top: 5%;">
+                            <button class="btn" data-bs-toggle="modal" data-bs-target="#orderConfirmationModal" style="width: 90%; background-color: #ffd814;font-size: 13px;color: #0F1111;border-radius: 7px;font-weight: 600;">Place your order</button>
+                        </div>
+                        <div style="margin-top: 4%;">
+                            <h5 style="font-size: 12px;color: #565959;line-height: 4px;text-align: center;">By placing your order, you agree to</h5>
+                            <h5 style="font-size: 12px;color: #565959;line-height: 4px;text-align: center;line-height: 10px;">privacy notice and conditions of use.</h5>
+                            <hr style="width: 90%;margin-left: 5%;">
+                        </div>
+                        
+                    </div>
+                    <div id="OrderSummary">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="myModal" role="dialog" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-body" style="display: flex;justify-content: center;">
+                    <div style="width: 90%;border: 1px solid #D5D9D9; margin-top: 0;border-radius: 8px;">
+                        <div style="height: 57px; background-color: #F0F2F2;border-bottom: 1px solid #D5D9D9;border-radius: 8px 8px 0 0;display: flex;align-items: center;">
+                            <h4 style="font-size: 16px;color: #0F1111;font-weight: 700;margin-left: 4%;margin-top: 1%;">Enter a new delivery address</h4>
+                            <a href="#" onclick="closeModal()" style="margin-left: 55%;"><img style="width: 12px;margin-left: 55%;" src="\static\images\close.png"></a>
+                        </div>
+                        <div style="margin-left: 3%;margin-top: 2.5%;">
+                            <h3 style="font-size: 24px;font-weight: 700;">Add a new address</h3>
+                        </div>
+                        <div style="margin-left: 3%;margin-top: 2%;">
+                            <p>
+                                <label style="font-size: 14px;font-weight: 700;">Country/Region</label>
+                                <select style="width: 96%;height: 32px;font-size: 13px;border-radius: 8px;color: #0F1111;font-weight: 500;background-color: #F0F2F2;" name="country" class="form-control" id="country">
+                                    <option value="India" selected="selected">India</option>
+                                    
+                                </select>
+                                
+                            </p>
+                            <p>
+                                <label style="font-size: 14px;font-weight: 700;">Full name (First and Last name)</label>
+                                <input style="width: 96%;height: 30px;font-size: 13px;border-radius: 8px;color: #0F1111;font-weight: 500;" type="text" class="form-control" id="name">
+                                <span id="errMsgName" style="font-size: 12px;color: #BA0933;"></span>
+                            </p>
+                            <p>
+                                <label style="font-size: 14px;font-weight: 700;">Mobile number</label>
+                                <input style="width: 96%;height: 30px;font-size: 13px;border-radius: 8px;color: #0F1111;font-weight: 500;" type="text" class="form-control" id="mobile">
+                                <span style="font-size: 11px;color: #0F1111;">May be used to assist delivery</span><br>
+                                <span id="errMsgMobile" style="font-size: 12px;color: #BA0933;"></span>
+                            </p>
+                            <p>
+                                <label style="font-size: 14px;font-weight: 700;">Pincode</label>
+                                <input style="width: 96%;height: 30px;font-size: 13px;border-radius: 8px;color: #0F1111;font-weight: 500;" type="text" class="form-control" id="pincode" placeholder="6 digits [0-9] PIN code">
+                                <span id="errMsgPin" style="font-size: 12px;color: #BA0933;"></span>
+                            </p>
+                            <p>
+                                <label for="address1" style="font-size: 14px;font-weight: 700;">Flat, House no., Building, Company, Apartment</label>
+                                <input style="width: 96%;height: 30px;font-size: 13px;border-radius: 8px;color: #0F1111;font-weight: 500;" type="text" class="form-control" id="Address_1">
+                                <span id="errMsgAddr1" style="font-size: 12px;color: #BA0933;"></span>
+                            </p>
+                            <p>
+                                <label for="address2" style="font-size: 14px;font-weight: 700;">Area, Street, Sector, Village</label>
+                                <input style="width: 96%;height: 30px;font-size: 13px;border-radius: 8px;color: #0F1111;font-weight: 500;" type="text" class="form-control" id="Address_2">
+                                <span id="errMsgAddr2" style="font-size: 12px;color: #BA0933;"></span>
+                            </p>
+                            <p>
+                                <label style="font-size: 14px;font-weight: 700;">Landmark</label>
+                                <input style="width: 96%;height: 30px;font-size: 13px;border-radius: 8px;color: #0F1111;font-weight: 500;" type="text" class="form-control" id="landmark" placeholder="E.g. near KIT College">
+                                <span id="errMsgLandmark" style="font-size: 12px;color: #BA0933;"></span>
+                            </p>
+                            <p>
+                                <label style="font-size: 14px;font-weight: 700;">Town/City</label>
+                                <input style="width: 96%; height: 30px;font-size: 13px;border-radius: 8px;color: #0F1111;font-weight: 500;" type="text" class="form-control" id="city">
+                                <span id="errMsgCity" style="font-size: 12px;color: #BA0933;"></span>
+                            </p>
+                            <p>
+                                <label style="font-size: 14px;font-weight: 700;">State</label>
+                                <select style="width: 96%; height: 32px;font-size: 13px;border-radius: 8px;color: #0F1111;font-weight: 500;background-color: #F0F2F2;" name="state" class="form-control" id="state">
+                                    <option value="KARNATAKA" selected>KARNATAKA</option>
+                                </select>
+                            </p>
+                            <div style="margin-top: 5%;">
+                                <button class="btn" style="background-color: rgb(237, 210, 34);font-size: 12px;font-weight: 600; color: #0F1111;border-radius: 7px;" onclick="validateAddressForm();">Use this address</button><br>
+                                <span id="displayMsg" style="font-size: 12px;color: #BA0933;"></span>
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Confirm order Popup start-->
+    <div class="modal fade" id="orderConfirmationModal" tabindex="-1" role="dialog" aria-labelledby="orderConfirmationModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content" style="height: 300px;border: 1px solid #ced4da; border-radius: 9px;">
+                <div class="modal-body">
+                    <!-- Captcha box -->
+                    <div style="display: flex;justify-content: space-between;">
+                        <h4 style="font-size: 18px;color: #0F1111;font-weight: 400;margin-top: 1.7%;">Confirm your Order</h4>
+                        <a href="#" onclick="closeCaptcha()"><img style="width: 10px;" src="\static\images\close.png"/></a>
+                    </div>
+                    <div style="display: flex;justify-content: center;margin-top: 2%;">
+                        <h4 style="font-size: 18px;color: #0F1111;font-weight: 600;">Enter the Captcha</h4>
+                    </div>
+                    <div style="display: flex;justify-content: center;margin-top: 3%;">
+                        <input class="captchBox" style="text-decoration: line-through; font-size: 16px;pointer-events: none; height: 40px; width: 50%; border-radius: 7px;border: 1px solid #ced4da;" value="" placeholder="5 x 8 P 0" disabled>
+                        <a href="#" style="margin-top: 1.2%;margin-left: 37%;position: absolute;" class="refresh" onclick="generateCaptcha()"><img style="width: 25px;" src="\static\images\circular-arrow.png"></a>
+                    </div>
+                    <div style="margin-top: 5%;display: flex;justify-content: center;">
+                        <input style="width: 50%;border-radius: 7px;" type="text" class="form-control" id="captcha" placeholder="Captcha">
+                    </div>
+                    <div style="display: flex;justify-content: center;align-items: center;margin-top: 5%;" id="confirmButton">
+                        
+                    </div>
+                    <div style="display: flex;justify-content: center;margin-top: 3%;">
+                        <span id="captchaMsg" style="font-size: 12px;color: #BA0933;text-align: center;"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Confirm order popup stop-->
+
+
+    <script>
+    
+    var defaultAdd=''
+    var defaultAddress=''
+    var xhttpdefAddress=new XMLHttpRequest();
+    xhttpdefAddress.onreadystatechange = function(){
+        if (this.readyState == 4 && this.status == 200) 
+        {
+            console.log(this.responseText)
+            var jsonData=JSON.parse(this.responseText)
+            
+            if(jsonData==0){
+                defaultAddress+='<div style="display: flex;justify-content: space-between;">'
+                defaultAddress+='<div>'
+                defaultAddress+='<h3 style="font-size: 18px;font-weight: 600;color: #0F1111;">1&nbsp;&nbsp;Delivery address</h3>'
+                defaultAddress+='</div>'
+                defaultAddress+='<div>'
+                defaultAddress+='<a href="#" data-bs-toggle="modal" data-bs-target="#myModal" style="font-size: 14px;color: #007185;text-decoration: none;">'
+                defaultAddress+='<img style="width: 15px;" src="/static/images/plus.png">&nbsp;&nbsp;Add address</a>'
+                defaultAddress+='</div>'
+                defaultAddress+='</div>'
+                document.getElementById('defaddress').innerHTML=defaultAddress
+            }
+            else{
+
+                defaultAdd+='<div style="display: flex;justify-content: space-between;">'
+                defaultAdd+='<div>'
+                defaultAdd+='<h3 style="font-size: 18px;font-weight: 600;color: #0F1111;">1&nbsp;&nbsp;Delivery address</h3>'
+                defaultAdd+='</div>'
+                defaultAdd+='<div>'
+                defaultAdd+='<ul style="list-style-type: none;font-size: 14px;color: #333;word-wrap: break-word;">'
+                defaultAdd+='<li>'+jsonData[0].full_name+'</li>'
+                defaultAdd+='<li>'+jsonData[0].address_line1+'</li>'
+                defaultAdd+='<li>'+jsonData[0].address_line2+'</li>'
+                defaultAdd+='<li>'+jsonData[0].city+', '+jsonData[0].state+', '+jsonData[0].pincode+'</li>'
+                defaultAdd+='</ul>'
+                defaultAdd+='</div>'
+                defaultAdd+='<div>'
+                defaultAdd+='<a href="#" style="text-decoration: none;font-size: 14px;color: #007185;" onclick="changeAdd()">Change</a>'
+                defaultAdd+='</div>'
+                defaultAdd+='</div>'
+            
+                document.getElementById('defaddress').innerHTML=defaultAdd
+            }
+        }
+    }
+    
+    xhttpdefAddress.open('GET',"http://127.0.0.1:8080/getAddresses",true)
+    xhttpdefAddress.send()
+
+
+
+
+    function changeAdd(){
+
+    var xhttpAddress=new XMLHttpRequest();
+    xhttpAddress.onreadystatechange = function() {
+
+        if(this.readyState==4 && this.status==200)     //200(Success), 300(Redirect), 400(server not found), 500(Internal server error)
+        {
+            console.log(this.responseText)
+            var jsonData=JSON.parse(this.responseText)
+            var jsonLength=jsonData.length
+            
+
+                
+
+                var AddHTML=''
+                var defaultAdd=''
+                for(var i=0;i<jsonLength;i++){
+                    
+
+                    AddHTML+='<div style="min-height: 50px; width: 95.5%;margin-left: 3%;margin-top: 0;display:flex;" class="radio-container">'
+                    AddHTML+='<input class="add" type="radio"  name="address" id="address' + i + '" value="'+jsonData[i].address_id+'"'
+                    if (i === 0) {
+                        AddHTML += ' checked';
+                    }
+                    
+                    AddHTML+='>'
+                    AddHTML+='<label for="address' + i + '" style="font-size: 15px;color: #0F1111;font-weight: 400;margin-left:2%;margin-top:2%"><span style="font-size: 15px;font-weight: 700;color: #0F1111;">'+jsonData[i].full_name+'</span> '+jsonData[i].address_line1+' '+jsonData[i].address_line2+', '+jsonData[i].city+', '+jsonData[i].state+', '+jsonData[i].pincode+', '+jsonData[i].country+'</label><br>'
+                    AddHTML+='</div>'  
+        
+                    
+                    
+
+                } //end of for
+
+                var changeHTML=''
+                changeHTML+='<div class="row">'
+                changeHTML+='<div style="display: flex;justify-content: space-between;">'
+                changeHTML+='<div>'
+                changeHTML+='<h3 style="font-size: 18px;font-weight: 700;color: #c94929;">1&nbsp;&nbsp;Select a delivery address</h3>'
+                changeHTML+='</div>'
+                changeHTML+='<div>'
+                changeHTML+='<a href="#" style="text-decoration: none;font-size: 14px;color: #007185;" onclick="closeAdd()">Close&nbsp;<img style="width: 10px;" src="/static/images/close.png"></a>'
+                changeHTML+='</div>'
+                changeHTML+='</div>'
+                changeHTML+='</div>'
+                changeHTML+='<div class="row" style="width: 96.8%;margin-left: 2.5%;margin-top: 1%; border-top: 1px #D5D9D9 solid;border-top-left-radius: 6px;border-top-right-radius: 6px; border-left: 1px #D5D9D9 solid;border-right: 1px #D5D9D9 solid;">'
+                changeHTML+='<div class="row">'
+                changeHTML+='<div style="margin-top: 3%;">'
+                changeHTML+='<h3 style="font-size: 18px;font-weight: 700;color: #343636;line-height: 5px;">Your addresses</h3>'
+                changeHTML+='<hr style="height: 0.7px;">'
+                changeHTML+='</div>'      
+                changeHTML+='</div>'
+                changeHTML+='<div class="row" id="multiAdd">'  
+                changeHTML+='</div>'
+                changeHTML+='<div class="row">'
+                changeHTML+='<div style="margin-top: 3%;margin-left: 2%;">'
+                changeHTML+='<a href="#" data-bs-toggle="modal" data-bs-target="#myModal" style="font-size: 14px;color: #007185;text-decoration: none;"><img style="width: 15px;" src="static/images/add.png" alt="">&nbsp;&nbsp;Add a new address</a>'
+                changeHTML+='<hr>'
+                changeHTML+='</div>'
+                changeHTML+='</div>'
+                changeHTML+='</div>'
+                changeHTML+='<div class="row" style="width: 100%;margin-left: 0.9%;">'
+                changeHTML+='<div style="height: 50px;background-color: #F0F2F2;border: 1px #D5D9D9 solid;border-radius:0 0 6px 6px;display: flex;align-items: center;">'
+                changeHTML+='<button class="btn" id="myLink" style="background-color: #ffd814;font-size: 12px;font-weight: 600; color: #0F1111;border-radius: 7px;">Use this address</button>'
+                changeHTML+='</div>'
+                changeHTML+='</div>'
+                
+                
+                
+                document.getElementById('defaddress').innerHTML=changeHTML
+                
+                const myLink = document.getElementById('myLink');
+                myLink.addEventListener('click', function(event) {
+                    event.preventDefault(); // Prevent the default link behavior (navigating to another page)
+                    selectAddress();
+                });
+                function selectAddress() {
+
+                    const radioButtons = document.querySelectorAll('input[name="address"]');
+                    let addressId;
+                    radioButtons.forEach(function(radioButton) {
+                        if (radioButton.checked) {
+                            addressId = radioButton.value;
+                        }
+                    });
+
+                        var xhttpsendAddress=new XMLHttpRequest();
+                        xhttpsendAddress.onreadystatechange=function(){
+                            if(this.readyState==4 && this.status==200)     //200(Success), 300(Redirect), 400(server not found), 500(Internal server error)
+                            {
+                                console.log(this.responseText)
+                                jsonData=JSON.parse(this.responseText)
+
+                                var selectedAddHTML=''
+
+                                selectedAddHTML+='<div style="display: flex;justify-content: space-between;">'
+                                selectedAddHTML+='<div>'
+                                selectedAddHTML+='<h3 style="font-size: 18px;font-weight: 600;color: #0F1111;">1&nbsp;&nbsp;Delivery address</h3>'
+                                selectedAddHTML+='</div>'
+                                selectedAddHTML+='<div>'
+                                selectedAddHTML+='<ul style="list-style-type: none;font-size: 14px;color: #333;word-wrap: break-word;">'
+                                selectedAddHTML+='<li>'+jsonData[0].full_name+'</li>'
+                                selectedAddHTML+='<li>'+jsonData[0].address_line1+'</li>'
+                                selectedAddHTML+='<li>'+jsonData[0].address_line2+'</li>'
+                                selectedAddHTML+='<li>'+jsonData[0].city+', '+jsonData[0].state+', '+jsonData[0].pincode+'</li>'
+                                selectedAddHTML+='</ul>'
+                                selectedAddHTML+='</div>'
+                                selectedAddHTML+='<div>'
+                                selectedAddHTML+='<a href="#" style="text-decoration: none;font-size: 14px;color: #007185;" onclick="changeAdd()">Change</a>'
+                                selectedAddHTML+='</div>'
+                                selectedAddHTML+='</div>'
+
+                                document.getElementById('defaddress').innerHTML=selectedAddHTML
+                            
+
+                            }
+                        }
+                        xhttpsendAddress.open("GET","http://127.0.0.1:8080/sendAddress/"+addressId,true)
+                        xhttpsendAddress.send()
+
+                    
+
+                }
+                
+                document.getElementById('multiAdd').innerHTML=AddHTML
+                
+                
+                
+            }
+                    
+            
+        }
+
+
+
+     
+
+    xhttpAddress.open('GET',"http://127.0.0.1:8080/getAddresses",true)
+    xhttpAddress.send()
+    }
+
+    
+    
+
+    
+    
+    
+
+    function closeAdd(){
+            document.getElementById('defaddress').innerHTML=defaultAdd
+    }        
+    
+            
+    function closeModal(){
+        $('#myModal').modal('hide');
+        location.reload()
+    }
+
+
+    function selectAddress(){
+
+    }
+
+
+
+
+    var xhttpproductDetails=new XMLHttpRequest();
+    xhttpproductDetails.onreadystatechange=function()
+        {
+            if(this.readyState==4 && this.status==200)     //200(Success), 300(Redirect), 400(server not found), 500(Internal server error)
+                {
+                    console.log(this.responseText)
+                    var jsonData=JSON.parse(this.responseText)
+
+                    var BuynowHTML=''
+                    var OrderSummaryHTML=''
+                    var confirmButtonHTML=''
+
+                    BuynowHTML+='<div class="row" style="width: 98.4%;margin-left: 2%;border: 1px #D5D9D9 solid;border-radius: 6px;">'
+                    BuynowHTML+='<div class="col-2">'
+                    BuynowHTML+='<div style="width: 80%;margin-top: 30%;margin-left: 20%;">'
+                    BuynowHTML+='<img class="imageHover" style="width: 100%;" src="'+jsonData[0].p_image+'" onclick="backToProduct('+jsonData[0].product_id+');"/>'  
+                    BuynowHTML+='</div>'
+                    BuynowHTML+='</div>'
+                    BuynowHTML+='<div class="col-5">'
+                    BuynowHTML+='<div style="margin-top: 11%;">'
+                    BuynowHTML+='<h4 style="font-size: 14px;font-weight: 600;color: #0F1111;">'+jsonData[0].product_name+'</h4>'
+                    BuynowHTML+='<h4 style="font-size: 14px;font-weight: 600;color: #B12704;line-height: 10px;">₹'+jsonData[0].product_price+'&nbsp;<span style="font-size: 14px;font-weight: 400;color: #0F1111;text-decoration: line-through;">₹'+jsonData[0].product_original_price+'</span></h4>'
+                    BuynowHTML+='<div style="height: 20px;width: 60.7px;background-color: #F0F2F2;border: 1px #D5D9D9 solid;border-radius: 7px;font-size: 12px;font-weight: 500; color: #0F1111;display: flex;justify-content: center;align-items: center;margin-top: 3.5%;">Qty: 1</div>'
+                    BuynowHTML+='<h5 style="font-size: 12px;color: #565959;line-height: 25px;">Sold by: Appario Retail Private Ltd</h5>'
+                    BuynowHTML+='<h5 style="font-size: 12px;color: #0F1111;line-height: 4px;">Free Spotify Premium Subscription</h5>'
+                    BuynowHTML+='</div><br>'
+                    BuynowHTML+='</div>'
+                    BuynowHTML+='<div class="col-5">'
+                    BuynowHTML+='<div style="margin-top: 10%;margin-left: 15%;">'
+                    BuynowHTML+='<h3 style="font-size: 16px;font-weight: 600;color: #0F1111;">Delivery date:&nbsp;<span style="color: #007600;">23 Sep 2023</span></h3>'
+                    BuynowHTML+='<h4 style="font-size: 14px;color: #565959;">Items dispatched by GadgetsWave</h4>'
+                    BuynowHTML+='<h4 style="font-size: 14px;color: #0F1111;line-height: 10px;">FREE Delivery</h4>'
+                    BuynowHTML+='</div>'
+                    BuynowHTML+='</div>'
+                    BuynowHTML+='</div>'
+                    BuynowHTML+='<div class="row" style="width: 98.4%;height: 68px; margin-left: 2%;border: 1px #D5D9D9 solid;border-radius: 6px;margin-top: 2%;">'
+                    BuynowHTML+='<div class="col-3" style="display: flex;align-items: center;">'
+                    BuynowHTML+='<div style="margin-left: 5%;">'
+                    BuynowHTML+='<button class="btn" data-bs-toggle="modal" data-bs-target="#orderConfirmationModal" style="background-color: #ffd814;font-size: 13px;font-weight: 600; color: #0F1111;border-radius: 7px;">Place your order</button>'
+                    BuynowHTML+='</div>'
+                    BuynowHTML+='</div>'
+                    BuynowHTML+='<div class="col-9" style="display: flex;align-items: center;">'
+                    BuynowHTML+='<div>'
+                    BuynowHTML+='<h4 style="font-size: 18px;font-weight: 600;color: #B12704;">Order Total: ₹'+jsonData[0].subtotal+'</h4>'
+                    BuynowHTML+='<h5 style="font-size: 12px;color: #565959;line-height: 2px;">By placing your order, you agree to GadgetsWave\'s privacy notice and conditions.</h5>'
+                    BuynowHTML+='</div>'
+                    BuynowHTML+='</div>'
+                    BuynowHTML+='</div>'
+
+                    confirmButtonHTML+='<button type="button" class="btn" id="confirmOrderButton" style="background-color: #fb641b;color: white;font-size: 14px;border-radius: 7px;" onclick="insertOrder('+jsonData[0].product_id+');">Confirm Order</button>'
+
+                    document.getElementById('confirmButton').innerHTML=confirmButtonHTML
+
+                    
+                    OrderSummaryHTML+='<div class="row">'
+                    OrderSummaryHTML+='<div style="margin-left: 5%;">'
+                    OrderSummaryHTML+='<h3 style="font-size: 18px;font-weight: 600;color: #0F1111;">Order Summary</h3>'
+                    OrderSummaryHTML+='</div>'
+                    OrderSummaryHTML+='</div>'
+                    OrderSummaryHTML+='<div class="row">'
+                    OrderSummaryHTML+='<div class="col-6">'
+                    OrderSummaryHTML+='<div style="margin-left: 13%;margin-top: 4%;">'
+                    OrderSummaryHTML+='<h4 style="font-size: 13px;color: #0F1111;">Items:</h4>'
+                    OrderSummaryHTML+='<h4 style="font-size: 13px;color: #0F1111;">Discount:</h4>'
+                    OrderSummaryHTML+='<h4 style="font-size: 13px;color: #0F1111;">Delivery:</h4>'
+                    OrderSummaryHTML+='</div>'
+                    OrderSummaryHTML+='</div>'
+                    OrderSummaryHTML+='<div class="col-6">'
+                    OrderSummaryHTML+='<div style="margin-left: 30%;margin-top: 4%;">'
+                    OrderSummaryHTML+='<h4 style="font-size: 13px;color: #0F1111;">₹'+jsonData[0].subtotal+'</h4>'
+                    OrderSummaryHTML+='<h4 style="font-size: 13px;color: #007600;">-₹'+jsonData[0].discount_price+'</h4>'
+                    OrderSummaryHTML+='<h4 style="font-size: 13px;color: #007600;"><span style="text-decoration: line-through;color: #565959;">₹40</span>&nbsp;Free</h4>'
+                    OrderSummaryHTML+='</div>'
+                    OrderSummaryHTML+='</div>'
+                    OrderSummaryHTML+='<hr style="width: 84%;margin-left: 8%;margin-top: 2%;">'
+                    OrderSummaryHTML+='</div>'
+                    OrderSummaryHTML+='<div class="row">'
+                    OrderSummaryHTML+='<div class="col-6">'
+                    OrderSummaryHTML+='<div style="margin-left: 9%;">'
+                    OrderSummaryHTML+='<h4 style="font-size: 16px;font-weight: 600;color: #B12704;">Order Total:</h4>'
+                    OrderSummaryHTML+='</div>'
+                    OrderSummaryHTML+='</div>'
+                    OrderSummaryHTML+='<div class="col-6">'
+                    OrderSummaryHTML+='<div style="margin-left: 23%;">'
+                    OrderSummaryHTML+='<h4 style="font-size: 16px;font-weight: 600;color: #B12704;">₹'+jsonData[0].subtotal+'</h4>'
+                    OrderSummaryHTML+'</div>'
+                    OrderSummaryHTML+='</div>'
+                    
+                    OrderSummaryHTML+='</div>'
+                    OrderSummaryHTML+='<hr style="width: 84%;margin-left: 8%;margin-top: 2%;">'
+                    OrderSummaryHTML+='<div class="row">'
+                    OrderSummaryHTML+='<div style="margin-left: 4%;">'
+                    OrderSummaryHTML+='<h3 style="font-size: 14px;color: #B12704;font-weight: 600;">Your Savings: ₹'+jsonData[0].discount_price+' ('+jsonData[0].discount_percentage+'%)</h3>'
+                    OrderSummaryHTML+='<h4 style="font-size: 13px;color: #0F1111;font-weight: 500;">+ FREE Delivery</h4>'
+                    OrderSummaryHTML+='</div>'
+                    OrderSummaryHTML+='</div>'
+
+                    document.getElementById('BuyNowProduct').innerHTML=BuynowHTML
+
+                    document.getElementById('OrderSummary').innerHTML=OrderSummaryHTML
+
+                }
+    
+        }
+                
+
+    // Create an XMLHttpRequest
+    xhttpproductDetails.open("GET","http://127.0.0.1:8080/BuynowDetails", true);
+    xhttpproductDetails.send()
+
+
+    function backToProduct(productId){
+            var xhttpbacktoProducts=new XMLHttpRequest();
+            xhttpbacktoProducts.onreadystatechange=function()
+            {
+                if(this.readyState==4 && this.status==200)     //200(Success), 300(Redirect), 400(server not found), 500(Internal server error)
+                {
+                    console.log(this.responseText)
+                    var jsonData=JSON.parse(this.responseText)
+
+                }
+
+            }
+            xhttpbacktoProducts.open("GET","http://127.0.0.1:8080/track-product-click/"+productId,true)
+            xhttpbacktoProducts.send()
+            window.location.href='/trackProductClick/'+productId;
+        }
+
+
+
+    function validateAddressForm(){
+        var country=document.getElementById('country').value
+        var state=document.getElementById('state').value
+        
+
+        var name = document.getElementById("name").value;
+
+            if(name=='')
+            {
+                document.getElementById('errMsgName').innerHTML='Please Enter Name'
+                return false
+            }
+            else{
+                document.getElementById('errMsgName').innerHTML=''
+            }
+            var regxName=/^[A-Za-z. ]+$/
+            var validName=name.match(regxName)
+
+            if(!validName){
+                document.getElementById('errMsgName').innerHTML='Please Enter a Valid Name'
+                return false
+            }
+            else{
+                document.getElementById('errMsgName').innerHTML=''
+            }
+
+            var mobile = document.getElementById("mobile").value;
+
+            if(mobile=='')
+            {
+                document.getElementById('errMsgMobile').innerHTML='Please Enter a Mobile Number'
+                return false
+            }
+            else{
+                document.getElementById('errMsgMobile').innerHTML=''
+            }
+
+            var regxMobile=/^[6-9]\d{9}$/
+            var validMobile=mobile.match(regxMobile)
+
+            if(!validMobile){
+                document.getElementById('errMsgMobile').innerHTML='Please Enter a Valid Mobile Number'
+                return false
+            }
+            else{
+                document.getElementById('errMsgMobile').innerHTML=''
+            }
+
+            var pincode=document.getElementById('pincode').value;
+
+            if(pincode=='')
+            {
+                document.getElementById('errMsgPin').innerHTML='Please Enter a Pincode'
+                return false
+            }
+            else{
+                document.getElementById('errMsgPin').innerHTML=''
+            }
+
+            var regxPin=/^\d{6}$/
+            var validPin=pincode.match(regxPin)
+
+            if(!validPin){
+                document.getElementById('errMsgPin').innerHTML='Please Enter a Valid PIN'
+                return false
+            }
+            else{
+                document.getElementById('errMsgPin').innerHTML=''
+            }
+
+            var addr1=document.getElementById('Address_1').value;
+
+            if(addr1=='')
+            {
+                document.getElementById('errMsgAddr1').innerHTML='Please Enter Flat, House no., Building, Company, Apartment'
+                return false
+            }
+            else{
+                document.getElementById('errMsgAddr2').innerHTML=''
+            }
+            var regxAddr=/^[A-Za-z0-9#@.-_,? ]+$/
+            var validAddr1=addr1.match(regxAddr)
+
+            if(!validAddr1){
+                document.getElementById('errMsgAddr2').innerHTML='Please Enter a Valid Address'
+                return false
+            }
+            else{
+                document.getElementById('errMsgAddr2').innerHTML=''
+            }
+
+
+            var addr2=document.getElementById('Address_2').value;
+
+            if(addr2=='')
+            {
+                document.getElementById('errMsgAddr2').innerHTML='Please Enter Area, Street, Sector, Village'
+                return false
+            }
+            else{
+                document.getElementById('errMsgAddr2').innerHTML=''
+            }
+            var regxAddr=/^[A-Za-z0-9#@.-_,? ]+$/
+            var validAddr2=addr2.match(regxAddr)
+
+            if(!validAddr2){
+                document.getElementById('errMsgAddr2').innerHTML='Please Enter a Valid Address'
+                return false
+            }
+            else{
+                document.getElementById('errMsgAddr2').innerHTML=''
+            }
+
+            var landmark=document.getElementById('landmark').value;
+
+            if(landmark=='')
+            {
+                document.getElementById('errMsgLandmark').innerHTML='Please Enter a landmark'
+                return false
+            }
+            else{
+                document.getElementById('errMsgLandmark').innerHTML=''
+            }
+
+            var regxlandmark=/^[A-Za-z0-9#@.-_,? ]+$/
+            var validLandmark=landmark.match(regxlandmark)
+
+            if(!validLandmark){
+                document.getElementById('errMsgLandmark').innerHTML='Please Enter a valid landmark'
+                return false
+            }
+            else{
+                document.getElementById('errMsgLandmark').innerHTML=''
+            }
+
+            var city=document.getElementById('city').value;
+
+            if(city=='')
+            {
+                document.getElementById('errMsgCity').innerHTML='Please Enter a city'
+                return false
+            }
+            else{
+                document.getElementById('errMsgCity').innerHTML=''
+            }
+
+            var regxCity=/^[A-Za-z0-9#@.-_,? ]+$/
+            var validCity=city.match(regxCity)
+
+            if(!validCity){
+                document.getElementById('errMsgCity').innerHTML='Please Enter a valid city'
+                return false
+            }
+            else{
+                document.getElementById('errMsgCity').innerHTML=''
+            }
+
+            var xhttpSaveAddress=new XMLHttpRequest()
+            xhttpSaveAddress.onreadystatechange=function(){
+                if(this.readyState==4 && this.status==200)     //200(Success), 300(Redirect), 400(server not found), 500(Internal server error)
+                {
+                    console.log(this.responseText)
+                    var jsonData=JSON.parse(this.responseText)
+                    if(jsonData[0].errFlag==0)
+                    {
+                        document.getElementById('displayMsg').innerHTML='<span style="color:green">'+jsonData[0].message+'</span>'
+                    }
+                    else{
+                        document.getElementById('displayMsg').innerHTML=jsonData[0].message
+                    }
+                }
+
+            }
+            xhttpSaveAddress.open("POST","http://127.0.0.1:8080/save-address",true)
+            xhttpSaveAddress.setRequestHeader("Content-type","application/x-www-form-urlencoded")
+            xhttpSaveAddress.send('country='+country+'&fullName='+name+'&mobileNumber='+mobile+'&pincode='+pincode+'&addressLine1='+addr1+'&addressLine2='+addr2+'&landmark='+landmark+'&city='+city+'&state='+state)
+
+            $('#myModal').modal('hide');
+            location.reload()
+    }
+
+
+    
+
+    
+
+
+    function generateRandomCode(length) {
+            const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+            let captcha = '';
+            for (let i = 0; i < length; i++) {
+                const randomIndex = Math.floor(Math.random() * characters.length);
+                captcha += characters.charAt(randomIndex);
+            }
+            return captcha;
+        }
+
+    
+        let captchaText
+        function generateCaptcha() {
+            const captchaTextBox=document.querySelector('.captchBox')
+            const refreshButton=document.querySelector('.refresh')
+            const messageBox=document.getElementById('captchaMsg')
+
+            const captchaCode = generateRandomCode(6); 
+            const captchaCodeArray=captchaCode.split("")
+            captchaText=captchaCodeArray.join("   ")
+            console.log(captchaText)
+
+            captchaTextBox.value = captchaText;
+
+            
+        }
+
+        generateCaptcha();
+        
+        function closeCaptcha(){
+            $('#orderConfirmationModal').modal('hide');
+        }
+
+        
+
+        function insertOrder(product_id){
+            captchaText=captchaText.split("").filter((char)=>char!==" ").join("")
+            console.log(captchaText)
+            var inputText=document.getElementById('captcha').value
+
+            const radioButtons = document.querySelectorAll('input[name="address"]');
+            let addressId;
+            radioButtons.forEach(function(radioButton) {
+                if (radioButton.checked) {
+                    addressId = radioButton.value;
+                }
+            });
+            
+
+            if(inputText==captchaText){
+                var xhttpOrderProduct=new XMLHttpRequest()
+                xhttpOrderProduct.onreadystatechange=function(){
+                    if(this.readyState==4 && this.status==200)     //200(Success), 300(Redirect), 400(server not found), 500(Internal server error)
+                    {
+                        console.log(this.responseText)
+                        //var jsonData=JSON.parse(this.responseText)
+                        document.getElementById('captchaMsg').innerHTML=''
+                        window.location.href='/OrderSucces'
+                    
+                    }
+                }
+                xhttpOrderProduct.open("GET","http://127.0.0.1:8080/OrderProducts/"+product_id,true)
+                xhttpOrderProduct.send()
+                
+            }
+            else{
+                document.getElementById('captchaMsg').innerHTML='! Incorrect Captcha. Please try again.'
+            }
+
+        }
+
+
+        
+            
+    </script>
+</body>
+</html>

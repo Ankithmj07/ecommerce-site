@@ -1,0 +1,1075 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GadgetsWave</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="static\style.css">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="shortcut icon" type="image/x-icon" href="\static\images\technology.png" />
+    <!--js bundle cdn-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <style>
+        body{
+            font-family: 'SF Pro Display','SF Pro Icons','Helvetica Neue','Helvetica','Arial',sans-serif;
+            text-align: center;
+            overflow-x: hidden;
+        }
+        .promo:hover{
+            cursor: pointer;
+        }
+        .links{
+            display: flex;
+            justify-content: center;
+            margin-left: 24%;
+        }
+        .bannerlinks{
+            display: flex;
+            justify-content: center;
+            margin-top: 2%;
+        }
+        .anki:hover{
+            cursor: pointer;
+            background-color: #fafafa;
+        }
+        ::placeholder{
+            color: #767676;
+            font-size: 14px;
+        }
+        #searchBar{
+            border: 1px #aaa7a7 solid;
+            outline: none;
+        }  
+        
+        #searchBar:focus {
+            border: 3px solid #ffd814;
+        }
+        #Searchimg{
+            cursor: pointer;
+        }
+
+        .footers{
+            text-decoration: none;
+            font-size: 14px;
+            color: #dddddd;
+        }
+
+        .footers:hover{
+            text-decoration: underline;
+            color: #dddddd;
+            text-decoration-color: #dddddd;
+        }
+
+        .footLinks{
+            margin-top: 2%;
+        }
+
+        #backToTop:hover{
+            background-color: #405165;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body onload="logVisitors()">
+    <!--Navigation Start-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand">
+                <img  src="static\images\technology.png" style="width: 30px;"/><span style="margin-left: 10px;">GadgetsWave</span>
+            </a>
+            <div style="display: flex;justify-content: flex-end;">
+                <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#searchModal">
+                    <img style="width: 20px;margin-top: 10%;" src="static\images\search-interface-symbol (1).png">
+                </a>
+                <a class="nav-link" href="/AdminLogin" style="color: white;margin-top: 3px;">
+                    Admin
+                </a>
+                <a class="nav-link" href="#" id="myBag">
+                    <img style="width: 20px;" src="static\images\bag.png">
+                </a>
+                <a class="nav-link" href="#" id="myWishlist">
+                    <img style="width: 20px;margin-top: 5px;" src="static\images\heart.png">
+                </a>
+                <a href="#" style="margin-top: 3%;" class="dropdown-toggle" data-bs-toggle="dropdown">
+                    <img style="width: 20px;margin-left: 40%;" src="static\images\user.png">
+                </a>
+                <div class="dropdown-menu" style="margin-left:89%;">
+                    <a href="#" style="font-size: 14px;" class="dropdown-item">Your Account</a>
+                    <a href="#" style="font-size: 14px;" class="dropdown-item" id="myOrderButton">Your Orders</a>
+                    <a href="#" style="font-size: 14px;" class="dropdown-item" id="logout">Logout</a>
+                </div>
+            </div>
+        </div>
+
+    </nav>
+    <!--Navigation End-->
+    <!--Ads Section start-->
+    <div class="container-fluid promo" style="background-color: #fbfbfd;"  onclick="logAdClick()">
+        <div class="row" style="font-family: 'SF Pro Display','SF Pro Icons','Helvetica Neue','Helvetica','Arial',sans-serif;">
+            <h1 style="font-size: 44px;font-weight: 700;line-height: 1.2; margin-top:100px;margin-right: 40px;" class="text-center">Introducing Apple Vision Pro:<br>Apple’s first spatial computer</h1>
+            <h3 class="text-center" style="font-weight: 400;font-size: 28px;margin-top: 0px;margin-right: 10px;">
+                The ultimate theater. Wherever you are.
+            </h3>
+            <h5 style="font-size: 17px;font-weight: 400;color: #6e6e73;">Available early next year in India.</h5>
+            <a href="https://www.apple.com/apple-vision-pro/" style="text-decoration: none;color: #2997ff;font-size: 21px;font-weight: 400;" class="text-center">Learn more <img style="width: 12px;" src="static\images\angle-right.png"></a>
+        </div>
+        <div class="row">
+            <div style="margin-left: 0px;">
+                <img src="static\images\Apple-WWCD23-Vision-Pro-glass-230605_big.jpg.large-removebg-preview.png" style="margin-top: 0px; margin-left: 0px;width: 70%;"/>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid promo" style="background-color: black;margin-top: 15px;" onclick="logAdClick()">
+        <div class="row" style="font-family: 'SF Pro Display','SF Pro Icons','Helvetica Neue','Helvetica','Arial',sans-serif;" >
+            <div style="margin-top: 3%;">
+                <h2 class="text-center" style="font-size: 56px; font-weight: 600;letter-spacing: -.005em;color: white;">iPhone 15 Pro</h2>
+                <h3 class="text-center" style="font-size: 28px; font-weight: 400;line-height: 0.5;letter-spacing: .004em;color: white;">Titanium. So strong. So light. So Pro.</h3>
+                <br>
+                <div style="margin-top: 0;display: flex;justify-content: center;">
+                    <a href="#" style="text-decoration: none;color: #2997ff;font-size: 19px;font-weight: 400;margin-right: 60px;">Learn more <img style="width: 12px;" src="static\images\angle-right.png"></a>
+                    <a href="#" onclick="viewPname('iPhone 15 Pro')" style="text-decoration: none;color: #2997ff;font-size: 19px;font-weight: 400;margin-left: 0;">Buy <img style="width: 12px;" src="static\images\angle-right.png"></a>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="margin-top: 4%;">
+            <div>
+                <img style="width: 90%;" src="static\images\hero_iphone15pro__i70z9oz3hj2i_mediumtall.jpg"/>
+            </div>
+            
+        </div>
+        <div style="height: 90px;background-color: black;"></div>
+    </div>
+    <div class="container-fluid promo" style="background-color: #fbfbfd;margin-top: 15px;" onclick="logAdClick()">
+        <div class="row" style="font-family: 'SF Pro Display','SF Pro Icons','Helvetica Neue','Helvetica','Arial',sans-serif;" >
+            <h2 class="text-center" style="font-size: 48px; font-weight: 600;margin-top: 50px;color: #1d1d1f;">iPhone 15</h2>
+            <h3 class="text-center" style="font-size: 24px; font-weight: 400;line-height: 12px;color: #1d1d1f;">New camera. New design. Newphoria.</h3>
+            <br>
+            <div style="margin-top: 0.5%;display: flex;justify-content: center;">
+                <a href="#" style="text-decoration: none;color: #2997ff;font-size: 19px;font-weight: 400;margin-right: 60px;">Learn more <img style="width: 12px;" src="static\images\angle-right.png"></a>
+                <a href="#" onclick="viewPname('iPhone 15')" style="text-decoration: none;color: #2997ff;font-size: 19px;font-weight: 400;margin-left: 0;">Buy <img style="width: 12px;" src="static\images\angle-right.png"></a>
+            </div>
+        </div>
+        <div class="row">
+            <div style="margin-top: 10%;">
+                <img style="width: 90%;" src="static\images\hero_iphone15_announce__uuemlcwczn6u_large-removebg-preview.png"/>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid promo" style="background-color: #fbfbfd;margin-top: 1%;" >
+        <div style="position: absolute;margin-left: 28%;margin-top: 16%;">
+            <h2 style="font-size: 110px;font-weight: 600;color: #f5f5f7;z-index: 4000;line-height: 01;">Airpods Pro</h2>
+            <h5 style="font-size: 17px;font-weight: 700;color: #f5f5f7;line-height: 0.2;letter-spacing: .011em;">2nd generation</h5>
+            <h5 style="font-size: 21px;font-weight: 400;color: #f5f5f7;line-height: 2;letter-spacing: .011em;">₹22990</h5>
+        </div>
+        <div style="position: absolute;margin-left: 40%;margin-top: 38%;">
+            <h5 style="font-size: 17px;font-weight: 400;color: #f5f5f7;line-height: 1.5;">Available starting 9.22</h5>
+            <div style="display: flex;justify-content: center;align-items: center;margin-top: 15px;">
+                <button class="btn btn"  style="text-decoration: none;color: #000;background-color: #f5f5f7; border-radius: 980px;text-align: center; font-size: 15px;height: 45px; font-weight: 400;width: 110px;">Order now</button>
+                <a  href="#"  style="text-decoration: none;color: #f5f5f7;font-size: 21px;font-weight: 400;margin-top: 1px;margin-left: 20px;">Learn more &gt</a>
+            </div>
+        </div>
+        <video id="myvideo" loop autoplay muted style="width: 100%; border-radius: 25px; z-index: -1;" src="\static\images\large_2x (1).mp4"/>
+        
+    </div>
+
+    
+    <div class="container-fluid promo" style="background-color: #fbfbfd;margin-top: 15px;" onclick="logAdClick()">
+        <div class="row" style="font-family: 'SF Pro Display','SF Pro Icons','Helvetica Neue','Helvetica','Arial',sans-serif;" >
+            <h2 class="text-center" style="font-size: 56px; font-weight: 600;margin-top: 50px;">iPhone 14</h2>
+            <h3 class="text-center" style="font-size: 28px; font-weight: 400;line-height: 10px;">Wonderfull.</h3>
+            <br>
+            <div style="margin-top: 0.5%;display: flex;justify-content: center;">
+                <a href="#" style="text-decoration: none;color: #2997ff;font-size: 19px;font-weight: 400;margin-right: 60px;">Learn more <img style="width: 12px;" src="static\images\angle-right.png"></a>
+                <a href="#" onclick="viewPname('iPhone 14')" style="text-decoration: none;color: #2997ff;font-size: 19px;font-weight: 400;margin-left: 0;">Buy <img style="width: 12px;" src="static\images\angle-right.png"></a>
+            </div>
+        </div>
+        <div class="row">
+            <div>
+                <img style="width: 75%;" src="static\images\iphone-14.png"/>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid promo" style="background-color: black;margin-top: 15px;" onclick="logAdClick()">
+        <div class="row">
+            <p style="margin-top: 2%;">
+                <img src="static\images\hero_logo_apple_watch_series_9__eg5xcrxghuaa_mediumtall.png"/>
+                <h5 class="text-center" style="color: white;font-size: 28px;font-weight: 400;">Smarter. Brighter. Mightier.</h5>
+                <div style="margin-top: 1%;display: flex;justify-content: center;">
+                    <a href="#" style="text-decoration: none;color: #2997ff;font-size: 20px;font-weight: 400;margin-right: 60px;">Learn more <img style="width: 12px;" src="static\images\angle-right.png"></a>
+                    <a href="#" onclick="viewPname('Series 9')" style="text-decoration: none;color: #2997ff;font-size: 20px;font-weight: 400;margin-left: 0;">Buy <img style="width: 12px;" src="static\images\angle-right.png"></a>
+                </div>
+            </p>
+        </div>
+        <div class="row">
+            <img style="width: 70%;margin-left: 15%;margin-top: 5%;" src="static\images\hero_apple_watch_series_9_order__d0fi9mb84dci_large.jpg"/>
+        </div>
+        
+    </div>
+    <div class="container-fluid promo" style="background-color: #fbfbfd;margin-top: 15px;" onclick="logAdClick()">
+        <div class="row" style="font-family: 'SF Pro Display','SF Pro Icons','Helvetica Neue','Helvetica','Arial',sans-serif;" >
+            <h2 class="text-center" style="font-size: 52px; font-weight: 600;margin-top: 40px;">MacBook Pro</h2>
+            <h3 class="text-center" style="font-size: 28px; font-weight: 400;line-height:17px;">Mind-blowing. Head-turning.</h3>
+            <h5 style="font-size: 21px;font-weight: 400;color: #6e6e73;line-height: 50px;">Available starting 11.7</h5>
+            <br>
+            <div style="display: flex;justify-content: center;">
+                <a href="#" style="text-decoration: none;color: #2997ff;font-size: 19px;font-weight: 400;margin-right: 60px;">Learn more&nbsp;<img style="width: 12px;" src="static\images\angle-right.png"></a>
+                <a href="#" onclick="viewPname('Macbook Pro')" style="text-decoration: none;color: #2997ff;font-size: 19px;font-weight: 400;margin-left: 0;">Buy <img style="width: 12px;" src="static\images\angle-right.png"></a>
+            </div>
+        </div>
+        <div class="row">
+            <div>
+                <img style="width: 70%;margin-top: 1.5%;" src="static\images\macbookPro_2.png"/>
+            </div>
+        </div>
+    </div>
+
+    
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-6">
+                <div class="promo mypromo" style="width: 102%;background-color: black;margin-top: 15px;" onclick="logAdClick()">
+                    <div class="row">
+                        <p style="margin-top: 4.5%;">
+                            <h4 class="text-center" style="color: white;font-size: 40px;font-weight: 600;">HomePod</h4>
+                            <h5 class="text-center" style="color: white;font-size: 21px;font-weight: 400;">Profound sound.</h5>
+                            <div class="row" style="width: 70%; margin-top: 10px;">
+                                <div class="links">
+                                    <a href="#" style="text-decoration: none;color: #2997ff;font-size: 17px;font-weight: 400;">Learn more <img style="width: 12px;" src="static\images\angle-right.png"></a>
+                                    <a href="#" onclick="viewPname('HomePod')" style="text-decoration: none;color: #2997ff;font-size: 17px;font-weight: 400;margin-left: 6%;">Buy <img style="width: 12px;" src="static\images\angle-right.png"></a>
+                                </div>
+                            </div>
+                        </p>
+                    </div>
+                    <div class="row">
+                        <img id="hompod" src="static\images\homepod_twins__gi5qodweaqie_large.jpg"/>
+                    </div>
+                </div>   
+            </div>
+            <div class="col-6 item">
+                <div class="promo mypromo" style="width: 100%; background-color: black;margin-top: 15px;" onclick="logAdClick()">
+                    <div class="row">
+                        <p style="margin-top: 4.5%;">
+                            <h4 class="text-center" style="color: white;font-size: 40px;font-weight: 600;">iPhone 14 Pro</h4>
+                            <h5 class="text-center" style="color: white;font-size: 21px;font-weight: 400;">Pro. Beyond.</h5>
+                            <div class="row" style="width: 70%; margin-top: 10px;">
+                                <div class="links">
+                                    <a href="#"  style="text-decoration: none;color: #2997ff;font-size: 17px;font-weight: 400;">Learn more <img style="width: 12px;" src="static\images\angle-right.png"></a>
+                                    <a  href="#" onclick="viewPname('iPhone 14 Pro');" style="text-decoration: none;color: #2997ff;font-size: 17px;font-weight: 400;margin-left: 6%;">Buy <img style="width: 12px;" src="static\images\angle-right.png"></a>
+                                </div>
+                            </div>
+                        </p>
+                    </div>
+                    <div class="row">
+                        <img class="pro14" src="static\images\promo-iphone-14.png"/>
+                    </div>
+                    
+                </div>
+                
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <div class="promo mypromo" style="width: 102%;background-color: black;margin-top: 10px;" onclick="logAdClick()">
+                    <div class="row">
+                        <p style="margin-top: 4.5%;">
+                            <h4 class="text-center" style="color: white;font-size: 40px;font-weight: 600;">iPad Pro</h4>
+                            <h5 class="text-center" style="color: white;font-size: 21px;font-weight: 400;">Supercharged by&nbsp;<img src="static\images\promo_m2_chip__enw2kz91lsuq_large.png"/></h5>
+                            <div class="row" style="width: 70%; margin-top: 10px;">
+                                <div class="links">
+                                    <a href="#" style="text-decoration: none;color: #2997ff;font-size: 17px;font-weight: 400;">Learn more <img style="width: 12px;" src="static\images\angle-right.png"></a>
+                                    <a href="#" onclick="viewPname('iPad Pro')" style="text-decoration: none;color: #2997ff;font-size: 17px;font-weight: 400;margin-left: 6%;">Buy <img style="width: 12px;" src="static\images\angle-right.png"></a>
+                                </div>
+                            </div>
+                        </p>
+                    </div>
+                    <div class="row">
+                        <img style="width: 90%;margin-left: 5%;margin-top: 0%;z-index: 1;" src="static\images\promo_ipadpro.jpg"/>
+                    </div>
+                </div>   
+            </div>
+            <div class="col-6">
+                <div class="promo mypromo" style="background-color: black;margin-top: 10px;" onclick="logAdClick()">
+                        <div class="row">
+                            <p style="margin-top: 7%;">
+                                <img style="margin-left: 0%;" src="static\images\watch-logo.png"/>
+                                <h5 class="text-center" style="color: white;font-size: 21px;font-weight: 400;">A healthy leap ahead.</h5>
+                                <div class="row" style="width: 70%; margin-top: 10px;">
+                                    <div class="links">
+                                        <a href="#" style="text-decoration: none;color: #2997ff;font-size: 17px;font-weight: 400;">Learn more <img style="width: 12px;" src="static\images\angle-right.png"></a>
+                                        <a href="#" onclick="viewPname('Watch Series 8')" style="text-decoration: none;color: #2997ff;font-size: 17px;font-weight: 400;margin-left: 6%;">Buy <img style="width: 12px;" src="static\images\angle-right.png"></a>
+                                    </div>
+                                </div>
+                            </p>
+                        </div>
+                        <div class="row">
+                            <img id="watch8" src="static\images\watch-series8.png"/>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+
+            <div class="row">
+                <div class="col-6">
+                    <div class="promo mypromo" style="width: 102%;background-color: #fbfbfd;margin-top: 10px;" onclick="logAdClick()">
+                        <div class="row">
+                            <p style="margin-top: 4.5%;">
+                                <img style="margin-left: 0%;width: 21%;" src="static\images\apple-trade-in-logo-202303.png"/>
+                                <h5 class="text-center" style="color: black;font-size: 21px;font-weight: 400;">Upgrade and save. It's that easy.</h5>
+                                <a href="#" style="text-decoration: none;color: #2997ff; font-size: 17px;font-weight: 400;margin-top: 2px;" class="text-center">See what your device is worth <img style="width: 12px;" src="static\images\angle-right.png"></a>
+                            </p>
+                        </div>
+                        <div class="row">
+                            <img id="tradein" src="static\images\tradein_promo__medium.jpg"/>
+                        </div>
+                    </div>
+                    
+                    
+                </div>
+                <div class="col-6">
+                    <div class="promo mypromo" style="background-color: #fbfbfd;margin-top: 10px;" >
+                        <div class="row">
+                            <p style="margin-top: 2%;">
+                                <h2 class="text-center" style="font-size: 17px; font-weight: 400;margin-top: 0;color: #f56300;line-height:0.5;letter-spacing: -.022em;">New</h2>
+                                <h4 class="text-center" style="color: black;font-size: 40px;font-weight: 600;">MacBook Air 15”</h4>
+                                <h5 class="text-center" style="color: black;font-size: 21px;font-weight: 400;">Impressively big. Impossibly thin.</h5>
+                                <div class="row" style="width: 70%; margin-top: 10px;">
+                                    <div class="links">
+                                        <a href="#"  style="text-decoration: none;color: #2997ff;font-size: 17px;font-weight: 400;">Learn more <img style="width: 12px;" src="static\images\angle-right.png"></a>
+                                        <a  href="#" onclick="viewPname('Macbook Air');" style="text-decoration: none;color: #2997ff;font-size: 17px;font-weight: 400;margin-left: 6%;">Buy <img style="width: 12px;" src="static\images\angle-right.png"></a>
+                                    </div>
+                                </div>
+                            </p>
+                        </div>
+                            <div class="row">
+                                <img id="macair" src="static\images\macbook_air__f6z1e32o3866_large.jpg"/>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+        </div>
+        <br>
+        
+
+
+    <!--Ads Section End-->
+    
+    <!--Product Catelog Start-->
+    <div class="container-fluid" style="margin-top: 50px;">
+        <h2 class="text-center" style="font-size: 64px;font-weight: 700;line-height: 1;">Which Products are<br>right for you?</h2><br><br><br>
+        <div class="row" id="productdata">
+            
+            
+        </div>
+    </div><br><br>
+    <!--Product catelog end-->
+    <!--Other Brands start-->
+    <div class="container">
+        <div class="row">
+            <h2 style="font-size: 41px;font-weight: 600;">Best deals from your favorite brands</h2>
+            <h2 style="font-size: 30px;font-weight: 500;">Upto 40% off.</h2>
+        </div>
+        <div class="row" style="margin-top: 4%;">
+            <div class="col-3"></div>
+            <div class="col-2">
+                <a href="/OnePlus"><img style="width: 150px;" src="https://m.media-amazon.com/images/G/31/img23/CEPC/jupiter23/headphones/shopbybrand/Oneplus_Shop_By_Brand_400x400._CB577491531_.png" alt=""></a>
+            </div>
+            <div class="col-2">
+                <a href="/Samsung"><img style="width: 150px;" src="https://m.media-amazon.com/images/G/31/img23/CEPC/jupiter23/headphones/shopbybrand/Samsung_Shop_By_Brand_400x400._CB577491531_.png" alt=""></a>
+            </div>
+            <div class="col-2">
+                <a href="/Redmi"><img style="width: 150px;" src="static\images\Untitled_design (1).png" alt=""></a>
+            </div>
+            <div class="col-3"></div>
+        </div>
+    </div><br><br>
+    <!--Other Brand end-->
+
+    <div class="container-fluid myslider">
+        <div class="slider">
+            <div class="slide active" style="position: absolute;">
+                <img class="slideImage" src="\static\images\slide(1).jpg"/>
+                <div class="info">
+                    <button class="btn" style= "font-size: 14px;font-weight: 600; color: #1d1d1f;line-height: 20px;background-color: #fff;width: 145px;height: 43px;border-radius: 30px;">Stream now&nbsp;&nbsp;<img src="\static\images\play-button (1).png" style="width: 15px;"></button>
+                    <h4 style="font-size: 19px;font-weight: 500;color: #fff;margin-left: 3%;margin-top: 0.9%;"><span style="font-weight: 600;">Crime : </span>Coming to theaters October 20.</h4>
+                </div>
+            </div>
+            <div class="slide" style="position: absolute;">
+                <img class="slideImage" src="\static\images\slide(2).jpg"/>
+                <div class="info">
+                    <button class="btn" style= "font-size: 14px;font-weight: 600; color: #1d1d1f;line-height: 20px;background-color: #fff;width: 145px;height: 43px;border-radius: 30px;">Stream now&nbsp;&nbsp;<img src="\static\images\play-button (1).png" style="width: 15px;"></button>
+                    <h4 style="font-size: 19px;font-weight: 500;color: #fff;margin-left: 3%;margin-top: 0.9%;text-shadow: 0px 0px 5px rgba(0,0,0,0.6);"><span style="font-weight: 600;">Documentary : </span>The world champion's next chapter.</h4>
+                </div>
+            </div>
+            <div class="slide" style="position: absolute;">
+                <img class="slideImage" src="\static\images\slide(3).jpg"/>
+                <div class="info">
+                    <button class="btn" style= "font-size: 14px;font-weight: 600; color: #1d1d1f;line-height: 20px;background-color: #fff;width: 145px;height: 43px;border-radius: 30px;">Stream now&nbsp;&nbsp;<img src="\static\images\play-button (1).png" style="width: 15px;"></button>
+                    <h4 style="font-size: 19px;font-weight: 500;color: #fff;margin-left: 3%;margin-top: 0.9%;text-shadow: 0px 0px 5px rgba(0,0,0,0.6);"><span style="font-weight: 600;">Drama : </span>Change is on the air.</h4>
+                </div>
+            </div>
+            <div class="slide" style="position: absolute;">
+                <img class="slideImage" src="\static\images\slide(4).jpg"/>
+                <div class="info">
+                    <button class="btn" style= "font-size: 14px;font-weight: 600; color: #1d1d1f;line-height: 20px;background-color: #fff;width: 145px;height: 43px;border-radius: 30px;">Stream now&nbsp;&nbsp;<img src="\static\images\play-button (1).png" style="width: 15px;"></button>
+                    <h4 style="font-size: 19px;font-weight: 500;color: #fff;margin-left: 3%;margin-top: 0.9%;text-shadow: 0px 0px 5px rgba(0,0,0,0.6);"><span style="font-weight: 600;">Comedy : </span>Talent is relative.</h4>
+                </div>
+            </div>
+            <div class="slide" style="position: absolute;">
+                <img class="slideImage" src="\static\images\slide(5).jpg"/>
+                <div class="info">
+                    <button class="btn" style= "font-size: 14px;font-weight: 600; color: #1d1d1f;line-height: 20px;background-color: #fff;width: 145px;height: 43px;border-radius: 30px;">Stream now&nbsp;&nbsp;<img src="\static\images\play-button (1).png" style="width: 15px;"></button>
+                    <h4 style="font-size: 19px;font-weight: 500;color: #fff;margin-left: 3%;margin-top: 0.9%;text-shadow: 0px 0px 5px rgba(0,0,0,0.6);"><span style="font-weight: 600;">Sci-Fi : </span>Fight together or fall apart.</h4>
+                </div>
+            </div>
+            <div class="slide" style="position: absolute;">
+                <img class="slideImage" src="\static\images\slide(6).jpg"/>
+                <div class="info">
+                    <button class="btn" style= "font-size: 14px;font-weight: 600; color: #1d1d1f;line-height: 20px;background-color: #fff;width: 145px;height: 43px;border-radius: 30px;">Stream now&nbsp;&nbsp;<img src="\static\images\play-button (1).png" style="width: 15px;"></button>
+                    <h4 style="font-size: 19px;font-weight: 500;color: #fff;margin-left: 3%;margin-top: 0.9%;text-shadow: 0px 0px 5px rgba(0,0,0,0.6);"><span style="font-weight: 600;">Comedy : </span> 21 Emmy® Nominations
+                        Including Best Comedy</h4>
+                </div>
+            </div>
+            <div class="slide" style="position: absolute;">
+                <img class="slideImage" src="\static\images\slide(7).jpg"/>
+                <div class="info">
+                    <button class="btn" style= "font-size: 14px;font-weight: 600; color: #1d1d1f;line-height: 20px;background-color: #fff;width: 145px;height: 43px;border-radius: 30px;">Stream now&nbsp;&nbsp;<img src="\static\images\play-button (1).png" style="width: 15px;"></button>
+                    <h4 style="font-size: 19px;font-weight: 500;color: #fff;margin-left: 3%;margin-top: 0.9%;text-shadow: 0px 0px 5px rgba(0,0,0,0.6);"><span style="font-weight: 600;">Animation : </span>Happiness is a Halloween tradition.</h4>
+                </div>
+            </div>
+            <div class="slide" style="position: absolute;">
+                <img class="slideImage" src="\static\images\slide(8).jpg"/>
+                <div class="info">
+                    <button class="btn" style= "font-size: 14px;font-weight: 600; color: #1d1d1f;line-height: 20px;background-color: #fff;width: 145px;height: 43px;border-radius: 30px;">Stream now&nbsp;&nbsp;<img src="\static\images\play-button (1).png" style="width: 15px;"></button>
+                    <h4 style="font-size: 19px;font-weight: 500;color: #fff;margin-left: 3%;margin-top: 0.9%;text-shadow: 0px 0px 5px rgba(0,0,0,0.6);"><span style="font-weight: 600;">Thriller : </span> LaKeith Stanfield stars in a dark fairy tale for grown-ups.</h4>
+                </div>
+            </div>
+            <div class="slide" style="position: absolute;">
+                <img class="slideImage" src="\static\images\slide(9).jpg"/>
+                <div class="info">
+                    <button class="btn" style= "font-size: 14px;font-weight: 600; color: #1d1d1f;line-height: 20px;background-color: #fff;width: 145px;height: 43px;border-radius: 30px;">Stream now&nbsp;&nbsp;<img src="\static\images\play-button (1).png" style="width: 15px;"></button>
+                    <h4 style="font-size: 19px;font-weight: 500;color: #fff;margin-left: 3%;margin-top: 0.9%;text-shadow: 0px 0px 5px rgba(0,0,0,0.6);"><span style="font-weight: 600;">Documentary : </span> The icons tell their own stories.</h4>
+                </div>
+            </div>
+            <div class="slide">
+                <img class="slideImage" src="\static\images\slide(10).jpg"/>
+                <div class="info">
+                    <button class="btn" style= "font-size: 14px;font-weight: 600; color: #1d1d1f;line-height: 20px;background-color: #fff;width: 145px;height: 43px;border-radius: 30px;">Stream now&nbsp;&nbsp;<img src="\static\images\play-button (1).png" style="width: 15px;"></button>
+                    <h4 style="font-size: 19px;font-weight: 500;color: #fff;margin-left: 3%;margin-top: 0.9%;text-shadow: 0px 0px 5px rgba(0,0,0,0.6);"><span style="font-weight: 600;">Sci-Fi : </span> All empires fall.</h4>
+                </div>
+            </div>
+        </div>
+    </div><br>
+    <div class="navigation">
+        <div class="my-btn active"></div>
+        <div class="my-btn"></div>
+        <div class="my-btn"></div>
+        <div class="my-btn"></div>
+        <div class="my-btn"></div>
+        <div class="my-btn"></div>
+        <div class="my-btn"></div>
+        <div class="my-btn"></div>
+        <div class="my-btn"></div>
+        <div class="my-btn"></div>
+    </div>
+     <br>
+
+    <!--slide show end-->
+
+
+    <div class="container-fluid">
+        <div class="row" onclick="backToTop();" style="background-color: #37475a;height: 49px;display: flex;align-items: center;justify-content: center;">
+            <div id="backToTop" style="height: 49px;display: flex;justify-content: center;align-items: center;">
+                <h3 style="color: #ffffff;font-size: 13px;margin-top: 0.5%;">Back to top</h3>
+            </div>
+        </div>
+        <div class="row" style="background-color: #232f3e;">
+            <div class="col-2"></div>
+            <div class="col-2">
+                <div style="margin-top: 30%;">
+                    <ul style="list-style-type: none;text-align: start;">
+                        <li style="font-size: 16px;color: #ffffff;font-weight: 500;">Get to Know Us</li>
+                        <li style="margin-top: 4%;"><a href="#" class="footers">About Us</a></li>
+                        <li class="footLinks"><a href="#" class="footers">Careers</a></li>
+                        <li class="footLinks"><a href="#" class="footers">Press Release</a></li>
+                        <li class="footLinks"><a href="#" class="footers">GadgetsWave Science</a></li>    
+                    </ul>
+                </div>
+            </div>
+            <div class="col-2">
+                <div style="margin-top: 30%;">
+                    <ul style="list-style-type: none;text-align: start;">
+                        <li style="font-size: 16px;color: #ffffff;font-weight: 500;">Connect with Us</li>
+                        <li style="margin-top: 4%;"><a href="#" class="footers">Facebook</a></li>
+                        <li class="footLinks"><a href="#" class="footers">Twitter</a></li>
+                        <li class="footLinks"><a href="#" class="footers">Instagram</a></li>    
+                    </ul>
+                </div>
+            </div>
+            <div class="col-2">
+                <div style="margin-top: 30%;">
+                    <ul style="list-style-type: none;text-align: start;">
+                        <li style="font-size: 16px;color: #ffffff;font-weight: 500;">Make Money with Us</li>
+                        <li style="margin-top: 4%;"><a href="#" class="footers">Sell on GadgetsWave</a></li>
+                        <li class="footLinks"><a href="#" class="footers">Sell under GadgetsWave Accelerator</a></li>
+                        <li class="footLinks"><a href="#" class="footers">Protect and Build Your Brand</a></li>
+                        <li class="footLinks"><a href="#" class="footers">GadgetsWave Global Selling</a></li>    
+                        <li class="footLinks"><a href="#" class="footers">Become an Affiliate</a></li>    
+                        <li class="footLinks"><a href="#" class="footers">Fulfilment by GadgetsWave</a></li>    
+                        <li class="footLinks"><a href="#" class="footers">Advertise Your Products</a></li>    
+                        <li class="footLinks"><a href="#" class="footers">Pay on Merchants</a></li>    
+                    </ul>
+                </div>
+                <br>
+            </div>
+            <div class="col-2">
+                <div style="margin-top: 30%;">
+                    <ul style="list-style-type: none;text-align: start;">
+                        <li style="font-size: 16px;color: #ffffff;font-weight: 500;">Let Us Help You</li>
+                        <li style="margin-top: 4%;"><a href="#" class="footers">COVID-19 and GadgetsWave</a></li>
+                        <li class="footLinks"><a href="#" class="footers">Your Account</a></li>
+                        <li class="footLinks"><a href="#" class="footers">Returns Centre</a></li>
+                        <li class="footLinks"><a href="#" class="footers">100% Purchase Protection</a></li>
+                        <li class="footLinks"><a href="#" class="footers">Amazon App Download</a></li>
+                        <li class="footLinks"><a href="#" class="footers">Help</a></li>    
+                    </ul>
+                </div>
+            </div>
+            <div class="col-2"></div>
+            <hr style="color: #dddddd;">
+            <div class="row" style="display: flex;justify-content: center;">
+                <img style="width: 80px;margin-top: 1%;" src="static\images\technology.png">
+            </div>
+            <div class="row">
+                <div style="margin-top: 2%;">
+                    <h2 style="font-size: 12px;color:#ffffff;line-height: 18px;">Conditions of Use & Sale  &nbsp;&nbsp; Privacy Notice&nbsp; &nbsp; Interest-Based Ads<br>© 2023, GadgetsWave.com, Inc. or its affiliates</h2>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!--contact section start-->
+    <!--<div class="container">
+        <h1 class="text-center">For Bulk Orders Contact us</h1>
+        <p class="text-center">Order with more than 5 can fill the form below</p>
+
+        <div class="row">
+            <div class="col-4">
+                <br>
+                <br>
+                <p>
+                    <b>Address :</b>
+                    #123, 4th Cross, 21st Main
+                    <br>
+                    Jaynagar 4th T Block,
+                    <br>
+                    Bengaluru - 560078
+                </p>
+
+                <p>
+                    <b>Email : </b>
+                    sales@gadgetswave.com
+                </p>
+                <p>
+                    <b>Mobile : </b>
+                    +91 9148868887
+                </p>
+            </div>
+            <div class="col-8">
+                <br><br>
+                <p>
+                    <label>Your Name</label>
+                    <input type="text" class="form-control" id="name">
+                    <span id="errMsgName" style="color: red;"></span>
+                </p>
+                <p>
+                    <label>Email</label>
+                    <input type="text" class="form-control" id="email">
+                    <span id="errMsgEmail" style="color: red;"></span>
+
+                </p>
+                <p>
+                    <label>Mobile</label>
+                    <input type="text" class="form-control" id="mobile">
+                    <span id="errMsgMobile" style="color: red;"></span>
+
+                </p>
+                <p>
+                    <label>Your Query</label>
+                    <textarea class="form-control" id="query"></textarea>
+                    <span id="errMsgQuery" style="color: red;"></span>
+
+                </p>
+                <button style="margin:auto;width: 100%;" class="btn btn-primary" onclick="validateContactForm();">Submit</button>
+                <br>
+                <p id="displayMsg"></p>
+            </div>
+        </div>
+    </div>-->
+    <!--contact section ends-->
+
+
+    <!--search dialog start-->
+    <div class="modal fade" id="searchModal" role="dialog" tabindex="-1">
+        <div class="modal-dialog modal-lg" style="margin-top: 0;">
+            <div class="modal-content" style="border-radius: 9px;">
+                <div class="container">
+                    <div class="row" style="margin-bottom: 1%;">
+                        <input type="text" class="form-control" id="searchBar" placeholder="Search GadgetsWave.in" style="width:95%;height: 39px; border-radius: 9px 0px 0px 9px;">
+                        <div onclick="searchInput();" style="background-color: #febd69;width: 39px;border-radius: 0px 9px 9px 0px;">
+                            <img id="Searchimg" style="width: 18px;margin-top: 8px;" src="static\images\search.png">
+                        </div>
+                    </div>
+                    <div id="searchRow">
+
+                    </div>
+                </div>
+            </div>
+        </div> 
+    </div>
+    <!--search dialog end-->
+
+
+    
+    <script>
+
+
+        function backToTop(){
+            window.scrollTo({
+                top:0,
+                behavior:'smooth'
+            });
+        }
+
+        var videoSpeed=document.getElementById('myvideo');
+        console.log(videoSpeed.playbackRate);
+        videoSpeed.playbackRate=0.5;
+        console.log(videoSpeed.playbackRate)
+        
+
+        var searchRowHTML=''
+        var nullHTML=''
+        
+        function searchInput(){
+            
+
+            var searchText=document.getElementById('searchBar').value
+            var lastName=''
+            console.log(searchText)
+            
+            var xhttpSearchProducts=new XMLHttpRequest
+            xhttpSearchProducts.onreadystatechange=function(){
+                if(this.readyState==4 && this.status==200){
+                    console.log(this.responseText)
+                    var jsonData=JSON.parse(this.responseText)
+                    var jsonLength=jsonData.length
+                    
+                    if(this.responseText==0){
+                        document.getElementById('searchRow').innerHTML=''
+                    }
+                    else{
+                        for(var i=0;i<jsonLength;i++){
+                            searchRowHTML+='<div class="row anki" style="width: 103%;text-align:start;">'
+                            searchRowHTML+='<h5 onclick="viewProduct('+jsonData[i].id+')" style="font-size: 15px;font-weight: 400;">'+jsonData[i].p_name+'</h5>'
+                            searchRowHTML+='</div>'
+                            
+                        }
+                        lastName=searchText
+                        
+
+                        document.getElementById('searchRow').innerHTML=searchRowHTML
+                    }
+                
+                    
+                }
+                
+            }
+            xhttpSearchProducts.open("POST","http://127.0.0.1:8080/search-products",true)
+            xhttpSearchProducts.setRequestHeader("Content-type","application/x-www-form-urlencoded")
+            xhttpSearchProducts.send('searchInput='+searchText)
+            
+        }
+        
+        //document.getElementById('modalContent').style.height='400px'
+        
+        
+
+
+        function validateContactForm()
+        {
+            // read  value from name text box
+            var name = document.getElementById("name").value;
+
+            if(name=='')
+            {
+                document.getElementById('errMsgName').innerHTML='Please Enter Name'
+                return false
+            }
+            else{
+                document.getElementById('errMsgName').innerHTML=''
+            }
+            var regxName=/^[A-Za-z. ]+$/
+            var validName=name.match(regxName)
+
+            if(!validName){
+                document.getElementById('errMsgName').innerHTML='Please Enter Valid Name'
+                return false
+            }
+            else{
+                document.getElementById('errMsgName').innerHTML=''
+            }
+
+            // Read Value from Email textbox
+            var email = document.getElementById("email").value;
+
+            if(email=='')
+            {
+                document.getElementById('errMsgEmail').innerHTML='Please Enter Email'
+                return false
+            }
+            else{
+                document.getElementById('errMsgEmail').innerHTML=''
+            }
+            var regxEmail=/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/
+            var validEmail=email.match(regxEmail)
+            if(!validEmail){
+                document.getElementById('errMsgEmail').innerHTML='Please Enter Valid Email'
+                return false
+            }
+            else{
+                document.getElementById('errMsgEmail').innerHTML=''
+            }
+
+
+            // Read Value from Mobile Textbox
+            var mobile = document.getElementById("mobile").value;
+
+            if(mobile=='')
+            {
+                document.getElementById('errMsgMobile').innerHTML='Please Enter Mobile Number'
+                return false
+            }
+            else{
+                document.getElementById('errMsgMobile').innerHTML=''
+            }
+
+            var regxMobile=/^[6-9]\d{9}$/
+            var validMobile=mobile.match(regxMobile)
+
+            if(!validMobile){
+                document.getElementById('errMsgMobile').innerHTML='Please Enter Valid Mobile'
+                return false
+            }
+            else{
+                document.getElementById('errMsgMobile').innerHTML=''
+            }
+
+            // Read value from Query Textbox
+            var query=document.getElementById('query').value
+
+            if(query.length > 0)
+            {
+                var regxQuery=/^[A-Za-z0-9#@.-_,? ]+$/
+                var validQuery=query.match(regxQuery)
+
+                if(!validQuery){
+                    document.getElementById('errMsgQuery').innerHTML='Alphanumeric and #@.,-? are allowed'
+                    return false
+                }
+                else{
+                    document.getElementById('errMsgQuery').innerHTML=''
+                
+                }
+            }
+
+            // AJAX code here
+
+            var xhttpContactForm=new XMLHttpRequest();
+            xhttpContactForm.onreadystatechange=function()
+            {
+                if(this.readyState==4 && this.status==200)     //200(Success), 300(Redirect), 400(server not found), 500(Internal server error)
+                {
+                    console.log(this.responseText)
+                    var jsonData=JSON.parse(this.responseText)
+
+                    if(jsonData[0].errFlag==0)
+                    {
+                        document.getElementById('displayMsg').innerHTML='<span style="color:green">'+jsonData[0].message+'</span>'
+                    }
+                    else{
+                        document.getElementById('displayMsg').innerHTML=jsonData[0].message
+                    }
+                }
+            }
+            xhttpContactForm.open("POST","http://127.0.0.1:8080/save-contacts",true)
+            xhttpContactForm.setRequestHeader("Content-type","application/x-www-form-urlencoded")
+            xhttpContactForm.send('customerName='+name+'&customerEmail='+email+'&customerMobile='+mobile+'&customerQuery='+query)
+
+        }
+
+         // AJAX -pAdsClick Data
+            
+            var xhttpAdsClick=new XMLHttpRequest();
+            xhttpAdsClick.onreadystatechange=function()
+            {
+                if(this.readyState==4 && this.status==200)     //200(Success), 300(Redirect), 400(server not found), 500(Internal server error)
+                {
+                    console.log(this.responseText)
+                    var jsonData=JSON.parse(this.responseText)
+
+                    var productHTML=''
+                    var productLength=jsonData.length
+
+                    for(var i=0;i<productLength;i++)
+                    {
+                        if(i<4){
+                        
+                        productHTML+='<div class="col-3" onclick="viewProduct('+jsonData[i].id+')">'
+                        productHTML+='<div>'
+                        productHTML+=''+jsonData[i].product_image+''
+                        
+                        productHTML+='<div class="card-body"><br>'
+                        productHTML+='<h4 style="margin-top: 10px;font-size:24px;font-weight:600;" class="text-center">'+jsonData[i].p_name+'</h4>'
+                        productHTML+='<p style="font-size: 17px;font-weight: 400;margin-top: 10px;" class="text-center">'
+                        productHTML+=''+jsonData[i].p_des+''
+                        productHTML+='</p>'
+                        productHTML+='<div class="row" style="display:flex;justify-content:center;">'
+                        productHTML+='<button style="width: 60px;height:30px;border-radius:980px;font-size:12px;background-color:#0071e3;" class="btn btn-primary">Buy</button>'
+                        productHTML+='</div>'
+                        productHTML+='<div class="row" style="margin-top:15px">'
+                        productHTML+='<a href="'+jsonData[i].target_link+'" target="_self" class="text-center" style="text-decoration: none;color:#2997ff">Learn More <img style="width: 12px;" src="static/images/angle-right.png"></a>' 
+                        productHTML+='</div><hr id="myhr">'
+                        productHTML+='</div>'
+                        productHTML+='</div>'
+                        productHTML+='</div>'
+                        }
+                        
+                    }
+
+                }//End for
+
+                document.getElementById('productdata').innerHTML=productHTML
+            }
+            xhttpAdsClick.open("GET","http://127.0.0.1:8080/products",true)
+            xhttpAdsClick.send()
+
+
+            // AJAX to Track ad clicks
+
+            function logAdClick(){
+                
+            var xhttpAdsClick=new XMLHttpRequest();
+            xhttpAdsClick.onreadystatechange=function()
+            {
+                if(this.readyState==4 && this.status==200)     //200(Success), 300(Redirect), 400(server not found), 500(Internal server error)
+                {
+                    console.log(this.responseText)
+                        
+
+                }
+
+            }
+            xhttpAdsClick.open("GET","http://127.0.0.1:8080/track-ad-click",true)
+            xhttpAdsClick.send()
+
+            }
+
+            function viewPname(pName)
+            {
+                var xhttppname=new XMLHttpRequest();
+                xhttppname.onreadystatechange=function()
+                {
+                    if(this.readyState==4 && this.status==200)     //200(Success), 300(Redirect), 400(server not found), 500(Internal servererror)
+                    {
+                        console.log(this.responseText)
+                        var jsonData=JSON.parse(this.responseText)
+                        console.log(jsonData[0])
+                        
+                        viewProduct(jsonData[0].id)
+                    }
+
+    
+                }
+                xhttppname.open("GET","http://127.0.0.1:8080/banner-product-id/"+pName,true)
+                xhttppname.send()
+            }
+
+
+            function logVisitors(){
+                
+                var xhttpVisitors=new XMLHttpRequest();
+                xhttpVisitors.onreadystatechange=function()
+                {
+                    if(this.readyState==4 && this.status==200)     //200(Success), 300(Redirect), 400(server not found), 500(Internal server error)
+                    {
+                        console.log(this.responseText)
+                        var jsonData=JSON.parse(this.responseText)
+    
+                        
+    
+                    }
+    
+                }
+                xhttpVisitors.open("GET","http://127.0.0.1:8080/track-visitors",true)
+                xhttpVisitors.send()
+    
+                }
+
+
+
+            function viewProduct(productId)
+            {
+                var xhttpproductClicks=new XMLHttpRequest();
+                xhttpproductClicks.onreadystatechange=function()
+                {
+                    if(this.readyState==4 && this.status==200)     //200(Success), 300(Redirect), 400(server not found), 500(Internal server error)
+                    {
+                        console.log(this.responseText)
+                        /*var jsonData=JSON.parse(this.responseText)
+                        var otherPageUrl = jsonData.other_page_url
+                        var data = jsonData.data;*/
+
+                        window.location.href= '/trackProductClick/'+productId;
+    
+                    }
+    
+                }
+                xhttpproductClicks.open("GET","http://127.0.0.1:8080/trackProductClick/"+productId,true)
+                xhttpproductClicks.send()
+
+                //window.location.href='product-details.html'
+            
+            }
+
+            var logoutButton=document.getElementById('logout')
+            var myOrdersButton=document.getElementById('myOrderButton')
+            var myBagButton=document.getElementById('myBag')
+            var myWishlistButton=document.getElementById('myWishlist')
+
+            var xhttpCustomerId=new XMLHttpRequest
+            xhttpCustomerId.onreadystatechange=function(){
+                if (this.readyState==4 && this.status==200)
+                    {
+                        console.log(this.responseText)
+                        if(this.responseText==0){
+                            document.getElementById('logout').innerHTML="Login"
+                            logoutButton.addEventListener('click', Login);
+                            myOrdersButton.addEventListener('click',Login);
+                            myBagButton.addEventListener('click',Login)
+                            myWishlistButton.addEventListener('click',Login)
+                        }
+                        else{
+                            document.getElementById('logout').innerHTML="Logout"
+                            logoutButton.addEventListener('click',Logout);
+                            myOrdersButton.addEventListener('click',YourOrders);
+                            myBagButton.addEventListener('click',myBag)
+                            myWishlistButton.addEventListener('click',myWishlist)
+                        }
+                    }
+                }
+            xhttpCustomerId.open("GET","http://127.0.0.1:8080/customer-id",true)
+            xhttpCustomerId.send()
+
+
+            function Logout(){
+
+                var xhttpLogout=new XMLHttpRequest
+                xhttpLogout.onreadystatechange=function(){
+                    if (this.readyState==4 && this.status==200)
+                    {
+                        console.log(this.responseText)
+                        document.getElementById('logout').innerHTML="Login"
+                    }
+
+                }
+                xhttpLogout.open("GET","http://127.0.0.1:8080/logout",true)
+                xhttpLogout.send()
+                window.location.reload()
+            }
+
+            function Login(){
+                window.location.href='/CustomerLogin'
+            }
+            
+            function YourOrders(){
+                window.location.href='/GotoOrders'
+            }
+
+            function myBag(){
+                window.location.href='/goToCart'
+            }
+
+            function myWishlist(){
+                window.location.href='/GoToWishlist'
+            }
+
+
+
+            var slides=document.querySelectorAll('.slide');
+            var btns=document.querySelectorAll('.my-btn');
+            let currentSlide=1;
+
+            var mannualNav=function(manual){
+                slides.forEach((slide) => {
+                    slide.classList.remove('active')
+                })
+
+                btns.forEach((btn) => {
+                    btn.classList.remove('active')
+                })
+
+                slides[manual].classList.add('active')
+                btns[manual].classList.add('active')
+            }
+
+            btns.forEach((btn,i) => {
+                btn.addEventListener('click',() => {
+                    mannualNav(i);
+                    currentSlide=i;
+                })
+            });
+
+            var repeat=function(activeClass){
+                let active=document.getElementsByClassName('active');
+                let i=1;
+                
+
+                var repeater=() => {
+                    setTimeout(function(){
+                        slides.forEach((slide) => {
+                    slide.classList.remove('active')
+                })
+
+                btns.forEach((btn) => {
+                    btn.classList.remove('active')
+                })
+                        slides[i].classList.add('active');
+                        btns[i].classList.add('active');
+                        i++;
+
+                        if(slides.length==i){
+                            i=0;
+                        }
+                        if(i>=slides.length){
+                            return;
+                        }
+                        repeater();
+                    },10000);
+                }
+                repeater();
+            }
+            repeat();
+    </script>
+</body>
+</html>
+
+

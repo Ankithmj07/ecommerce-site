@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="shortcut icon" type="image/x-icon" href="\static\images\technology.png" />
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+
+    <!--js bundle cdn-->
+    
+
+    <style>
+        .thumb{
+            transition: transform 0.5s ease;
+        }
+
+        .thumb:hover{
+            transform: scale(1.3); /* Increase the size of the image on hover */
+            cursor: pointer;
+        }
+
+        .thumb.transformed{
+            transform: scale(1.3) ;/* Make it larger when clicked*/
+        }
+    </style>
+</head>
+<body>
+    <!--Navigation Start-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand">
+                <img src="\static\images\technology.png" style="width: 30px;"/><span style="margin-left: 10px;">GadgetsWave</span>
+            </a>
+
+        </div>
+
+    </nav><br><br>
+    <!--Navigation End-->
+
+    <div class="container-fluid">
+       
+
+        <!--Product Display Grid Start-->
+        <div class="row" id="productDetails">
+
+            
+        </div>
+        <!--Product Display Grid End-->
+
+    </div>
+
+    <!--Add to cart popup start-->
+    <div class="modal fade" id="addCart" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+    
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Product added to Cart Successfully</h4>
+                    <!--<button type="button" class="close" data-dismiss="modal">&times;</button>-->
+                </div>
+    
+                <!-- Modal body -->
+                <div class="modal-body">
+                    Your product has been added to the cart.
+                </div>
+    
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" onclick="goToCart()">Go to Cart</button>
+                    <a href="#" onclick="closeDialog()" style="text-decoration: none;">Close</a>
+                </div>
+    
+            </div>
+        </div>
+    </div>
+    <!--Add to cart popup end-->
+    <!--Login popup start-->
+    <div class="modal fade" id="Login" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+    
+                <!-- Modal Header -->
+                <!-- Modal body -->
+                <div class="modal-body" style="text-align: center;">
+                    Please Login to Continue.
+                </div>
+    
+                <!-- Modal footer -->
+                <div class="modal-footer" style="display: flex;justify-content: center;">
+                    <button type="button" class="btn btn-primary" onclick="Login()">Login</button>
+                </div>
+    
+            </div>
+        </div>
+    </div>
+    <!--Login popup end-->
+
+    <!--customer order popup start-->
+    <div class="modal fade" id="customerOrderPopup" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">
+                        Enter Shipping Details
+                    </h5>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        Please Enter Shipping Details Below
+                    </p>
+                    <p>
+                        <label>Name</label>
+                        <input type="text" class="form-control" id="name">
+                        <span id="errMsgName" style="color: red;"></span>
+                    </p>
+                    <p>
+                        <label>Email</label>
+                        <input type="text" class="form-control" id="email">
+                        <span id="errMsgEmail" style="color: red;"></span>
+                    </p>
+                    <p>
+                        <label>Mobile</label>
+                        <input type="text" class="form-control" id="mobile">
+                        <span id="errMsgMobile" style="color: red;"></span>
+                    </p>
+                    <p>
+                        <label>Shipping Address Line 1</label>
+                        <input type="text" class="form-control" id="addr1">
+                        <span id="errMsgAddr1" style="color: red;"></span>
+                    </p>
+                    <p>
+                        <label>Shipping Address Line 2</label>
+                        <input type="text" class="form-control">
+                        <span id="errMsgAddr2" style="color: red;"></span>
+                    </p>
+                    <button class="btn btn-success" style="width: 100%;" onclick="validateShippingForm()">Place Order</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!--customer order popup end-->
+    <script>
+        function validateShippingForm(){
+            var name = document.getElementById("name").value;
+
+            if(name=='')
+            {
+                document.getElementById('errMsgName').innerHTML='Please Enter Name'
+                return false
+            }
+            else{
+                document.getElementById('errMsgName').innerHTML=''
+            }
+            var regxName=/^[A-Za-z. ]+$/
+            var validName=name.match(regxName)
+
+            if(!validName){
+                document.getElementById('errMsgName').innerHTML='Please Enter Valid Name'
+                return false
+            }
+            else{
+                document.getElementById('errMsgName').innerHTML=''
+            }
+
+            // Read Value from Email textbox
+            var email = document.getElementById("email").value;
+
+            if(email=='')
+            {
+                document.getElementById('errMsgEmail').innerHTML='Please Enter Email'
+                return false
+            }
+            else{
+                document.getElementById('errMsgEmail').innerHTML=''
+            }
+            var regxEmail=/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/
+            var validEmail=email.match(regxEmail)
+            if(!validEmail){
+                document.getElementById('errMsgEmail').innerHTML='Please Enter Valid Email'
+                return false
+            }
+            else{
+                document.getElementById('errMsgEmail').innerHTML=''
+            }
+
+
+            // Read Value from Mobile Textbox
+            var mobile = document.getElementById("mobile").value;
+
+            if(mobile=='')
+            {
+                document.getElementById('errMsgMobile').innerHTML='Please Enter Mobile Number'
+                return false
+            }
+            else{
+                document.getElementById('errMsgMobile').innerHTML=''
+            }
+
+            var regxMobile=/^[6-9]\d{9}$/
+            var validMobile=mobile.match(regxMobile)
+
+            if(!validMobile){
+                document.getElementById('errMsgMobile').innerHTML='Please Enter Valid Mobile'
+                return false
+            }
+            else{
+                document.getElementById('errMsgMobile').innerHTML=''
+            }
+
+            // Read value from Addr Textbox
+            var addr1=document.getElementById('addr1').value
+            if(addr1=='')
+            {
+                document.getElementById('errMsgAddr1').innerHTML='Please Enter the Address'
+                return false
+            }
+            else{
+                document.getElementById('errMsgAddr1').innerHTML=''
+            }
+            
+            
+            var regxAddr1=/^[A-Za-z0-9#@.-_,? ]+$/
+            var validAddr1=addr1.match(regxAddr1)
+
+            if(!validAddr1){
+                document.getElementById('errMsgAddr1').innerHTML='Alphanumeric and #@.,-? are allowed'
+                return false
+            }
+            else{
+                document.getElementById('errMsgAddr1').innerHTML=''
+                
+            }
+        }
+
+
+         // AJAX code for Product Details
+
+
+        var xhttpproductDetails=new XMLHttpRequest();
+        xhttpproductDetails.onreadystatechange=function()
+        {
+            if(this.readyState==4 && this.status==200)     //200(Success), 300(Redirect), 400(server not found), 500(Internal server error)
+            {
+                console.log(this.responseText)
+                var jsonData=JSON.parse(this.responseText)
+
+                var productDetailsHTML=''
+
+                productDetailsHTML+='<div class="col-1">'
+                productDetailsHTML+=''+jsonData[0].product_thumbnails+''
+                productDetailsHTML+='</div>'
+                productDetailsHTML+='<div class="col-4">'
+                productDetailsHTML+='<h3 style="margin-left: 120px;">Product Details</h3><br>'
+                productDetailsHTML+='<div style="display: flex;justify-content: flex-end;">'
+                productDetailsHTML+='<a href="#" onclick="share()"><img style="width:24px;" id="shareBtn" src="/static/images/share(1).png"/></a>'
+                productDetailsHTML+='</div>'
+                productDetailsHTML+=''+jsonData[0].detailed_image+''
+                
+                
+                productDetailsHTML+='</div>'
+
+                productDetailsHTML+='<div style="font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,Cantarell, "Open Sans", "Helvetica Neue", sans-serif;" class="col-7">'
+                productDetailsHTML+='<h2 style="margin-top: 50px;">'+jsonData[0].product_name+'</h2>'
+                productDetailsHTML+='<p>'
+                productDetailsHTML+=''+jsonData[0].product_description+''
+                productDetailsHTML+='</p>'
+                productDetailsHTML+='<p>'
+                productDetailsHTML+='<h2 style="color: red;margin-left: 0px;">&#8377 '+jsonData[0].product_price+' <span style="text-decoration: line-through;font-size: 18px;color: black;">&#8377 '+jsonData[0].product_original_price+'</span><br></h2>'
+                productDetailsHTML+='</p>'
+                productDetailsHTML+='<p style="margin-left: 13px;">'
+                productDetailsHTML+='<b>Key Features</b>'
+            
+                productDetailsHTML+=''+jsonData[0].product_key_features+''
+                productDetailsHTML+='</p>'
+    
+                productDetailsHTML+='<div style="margin-top: 30px;" class="row">'
+                productDetailsHTML+='<div class="col-3">'
+                productDetailsHTML+='<button style="width: 68%;margin-left: 10px;font-size:15px;" class="btn btn-primary" onclick="BuyNow('+jsonData[0].id+');" data-bs-toggle="modal" id="buyNowButton">Buy Now</button>'
+                productDetailsHTML+='</div>'
+                productDetailsHTML+='<div class="col-9">'
+                productDetailsHTML+='<button style="width: 20%;margin-left: 10px;background-color:#fb641b;font-size:15px;" type="button" class="btn btn-danger" data-bs-toggle="modal" onclick="getProductId('+jsonData[0].id+');" id="mycart">Add to Cart</button>'
+                productDetailsHTML+='</div>'
+                    
+                productDetailsHTML+='</div>'
+
+                productDetailsHTML+='</div>'
+
+                    
+
+            }
+
+            document.getElementById('productDetails').innerHTML=productDetailsHTML
+               
+            var transformableImages = document.querySelectorAll('.thumb');
+            var currentTransformedImage = null;
+
+            transformableImages.forEach(function(image) {
+                image.addEventListener('click', function() {
+                    if (currentTransformedImage !== null) {
+                        currentTransformedImage.classList.remove('transformed');
+                    }
+                    image.classList.add('transformed');
+    
+                    currentTransformedImage = image;
+        });
+    });
+            
+
+        }
+        xhttpproductDetails.open("GET","http://127.0.0.1:8080/product-details",true)
+        xhttpproductDetails.send()
+
+        function viewThumbnail1()
+        {
+
+            var thumb1=document.getElementById('img1').src
+            document.getElementById('thumbNail').src=thumb1
+            document.getElementById('thumbNail').style.marginTop='0px'
+        }
+        
+        function viewThumbnail2()
+        {
+
+            var thumb2=document.getElementById('img2').src
+            document.getElementById('thumbNail').src=thumb2
+            document.getElementById('thumbNail').style.marginTop='0px'
+        }
+
+        function viewThumbnail3()
+        {
+
+            var thumb3=document.getElementById('img3').src
+            document.getElementById('thumbNail').src=thumb3
+            document.getElementById('thumbNail').style.marginTop='0px'
+        }
+
+        function viewThumbnail4()
+        {
+
+            var thumb4=document.getElementById('img4').src
+            document.getElementById('thumbNail').src=thumb4
+        }
+
+        var imgElement = document.querySelectorAll('.thumb');
+
+        imgElement.forEach(function(image) {
+            image.addEventListener('mouseover', function() {
+            // Apply hover effect
+                image.style.transform = 'scale(1.3)';
+                image.style.cursor = 'pointer';
+            });
+
+            image.addEventListener('mouseout', function() {
+            // Revert to normal state
+                image.style.transform = 'scale(1)';
+                image.style.cursor = 'default';
+            });
+        });    
+
+
+        
+
+        function getProductId(p_id)
+        {
+            var AddToCartButton=document.getElementById('mycart')
+            var xhttpCustomerId=new XMLHttpRequest
+            xhttpCustomerId.onreadystatechange=function(){
+                if(this.readyState==4 && this.status==200)
+                {
+                    console.log(this.responseText)
+
+                    if(this.responseText==0){
+                        AddToCartButton.setAttribute('data-bs-target','#Login')
+                    }
+                    else{
+                        var xhttpproductCart=new XMLHttpRequest();
+                        xhttpproductCart.onreadystatechange=function()
+                            {
+                                if(this.readyState==4 && this.status==200)     //200(Success), 300(Redirect), 400(server not found), 500(Internal server error)
+                                {
+                                    AddToCartButton.setAttribute('data-bs-target','#addCart')
+                                }
+                            
+                            }
+                        xhttpproductCart.open("GET","http://127.0.0.1:8080/insert-cart/"+p_id, true);
+                        xhttpproductCart.send()
+                    }
+                }
+            }
+            xhttpCustomerId.open("GET","http://127.0.0.1:8080/customer-id", true)
+            xhttpCustomerId.send()
+        }
+        
+        function goToCart(){
+            window.location.href='/goToCart';
+        }
+
+        function closeDialog(){
+            $('#addCart').modal('hide');
+        }
+
+        function Login(){
+            window.location.href='/CustomerLogin';
+        }
+        
+
+        function BuyNow(product_id){
+
+            var xhttpCustomerId=new XMLHttpRequest
+            xhttpCustomerId.onreadystatechange=function(){
+                if(this.readyState==4 && this.status==200)
+                {
+                    console.log(this.responseText)
+
+                    if(this.responseText==0){
+                        var buyButton=document.getElementById('buyNowButton')
+                        buyButton.setAttribute('data-bs-target','#Login')
+
+                    }
+                    else{
+                        var xhttpBuynow=new XMLHttpRequest();
+                        xhttpBuynow.onreadystatechange=function()
+                        {
+                            if(this.readyState==4 && this.status==200)     //200(Success), 300(Redirect), 400(server not found), 500(Internal server error)
+                            {
+                                console.log(this.responseText)
+                                window.location.href='/move-productid/'+product_id;
+                            }
+    
+                        }
+                        xhttpBuynow.open("GET","http://127.0.0.1:8080/move-productid/"+product_id, true);
+                        xhttpBuynow.send()
+                        
+                    }
+                    
+                }
+            }
+
+            xhttpCustomerId.open("GET","http://127.0.0.1:8080/customer-id", true)
+            xhttpCustomerId.send()
+
+            
+        }
+        
+    function share(){
+        if (navigator.share) {
+                navigator.share({
+ 
+                    // Title that occurs over
+                    // web share dialog
+                    title: window.document.title,
+ 
+                    // URL to share
+                    url: window.document.location.href
+                }).then(() => {
+                    console.log('Thanks for sharing!');
+                }).catch(err => {
+ 
+                    // Handle errors, if occurred
+                    console.log(
+                    "Error while using Web share API:");
+                    console.log(err);
+                });
+            } else {
+ 
+                // Alerts user if API not available 
+                alert("Browser doesn't support this API !");
+            }
+    }
+
+    </script>
+
+</body>
+</html>
