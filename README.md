@@ -12,7 +12,7 @@ I reproduced this web app and tried to imitate Apple's and Amazon's design and m
   6. Add products to thier wishlist
   7. Search products
 
-# How to run this application locally
+## How to run this application locally
 To install all the packages, run:
 ```
 pip3 install -r requirements.txt
