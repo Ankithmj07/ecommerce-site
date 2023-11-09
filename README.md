@@ -14,10 +14,9 @@ I reproduced this web app and tried to imitate Apple's and Amazon's design and m
 
 # How to run this application locally
 To install all the packages, run:
-```
-pip3 install -r requirements.txt
-
+```pip3 install -r requirements.txt
 ```
 
 Then run :
-```python app.py```
+```python app.py
+```
