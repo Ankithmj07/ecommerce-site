@@ -3,15 +3,141 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Product Details</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="shortcut icon" type="image/x-icon" href="\static\images\technology.png" />
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 
     <style>
-        .mybutton{
-            background-color: pink;
+         body{
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+            background-color: white;
+            overflow-x: hidden;
         }
+
+        .thumbList{
+            margin-top: 40%;
+        }
+
     </style>
+
 </head>
 <body>
-    <button class="mybutton">click</button>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand">
+                <img  src="\static\images\technology.png" style="width: 30px;"/><span style="margin-left: 10px;">GadgetsWave</span>
+            </a>
+            
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row" id="product-details">
+            <!--<div class="col-5">
+                <div class="row">
+                    <div class="col-4">
+                        <div>
+                            <ul style="list-style-type: none;margin-top: 170px;margin-left: 30%;">
+                                <li class="thumbList"><img style="width: 50%;" src="https://m.media-amazon.com/images/I/5171kgKguGL._SX679_.jpg"></li>
+                                <li class="thumbList"><img style="width: 50%;" src="https://m.media-amazon.com/images/I/51ZWE9W53fL._SX679_.jpg"></li>
+                                <li class="thumbList"><img style="width: 50%;" src="https://m.media-amazon.com/images/I/41M3NrJGhTL._SX679_.jpg"></li>
+                                <li class="thumbList"><img style="width: 50%;" src="https://m.media-amazon.com/images/I/71WTqE8FijL._SX679_.jpg"></li>
+                    
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-8">
+                        <h3 style="font-size: 28px;font-weight: 500;color: #212529;margin-top: 14%;margin-left: 15%;">Product Details</h3>
+                        <div style="display: flex;justify-content: end;">
+                            <img width="6%;" src="\static\images\share(1).png">
+                        </div>
+                        <div style="margin-top: 3%; display: flex;justify-content: flex-start;">  
+                            <img style="width: 80%;" src="https://m.media-amazon.com/images/I/5171kgKguGL._SX679_.jpg">
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="col-7">
+                <h3 style="margin-top: 10%;">OnePlus Bullets Z2 Bluetooth Wireless in Ear Earphones with Mic, Bombastic Bass</h3>
+                <h4 style="color: #393d3f;font-weight: 400;">Feel and hear every beat.</h4>
+                <h2 style="color: red;margin-left: 0px;line-height: 50px;">&#8377 1559.00 <span style="text-decoration: line-through;font-size: 18px;color: black;">&#8377 2229.00</span><br></h2>
+                <b style="margin-left: 1.5%;">Key Features</b>
+                <ul style="margin-top: 20px;">
+                    <li>Dual beamforming microphones, Dual optical sensors</li>
+                    <li>H1 headphone chip</li>
+                    <li>Works with the Lightning connector</li>
+                    <li>Up to 5 hours of listening time with a single charge, Up to 3 hours of talk time with a single charge</li>
+                    <li>Bluetooth 5.0 wireless technology</li>
+                    <li>Lightning to USB-A Cable</li>
+                </ul><br>
+                <div style="width: 60%;">
+                    <button style="width: 25%;margin-left: 10px;font-size:15px;" class="btn btn-primary" onclick="BuyNow('+jsonData[0].id+');" data-bs-toggle="modal" id="buyNowButton">Buy Now</button>
+                    <button style="width: 25%;margin-left: 10px;font-size:15px;background-color: #fb641b;color: white;" class="btn" onclick="BuyNow('+jsonData[0].id+');" data-bs-toggle="modal" id="AddtoCartButton">Buy Now</button>
+                </div>
+            </div>-->
+        </div>
+
+    </div>
+
+
+    <script>
+        var xhttpproductDetails=new XMLHttpRequest();
+        xhttpproductDetails.onreadystatechange=function(){
+            if(this.readyState==4 && this.status==200)
+            {
+                var jsonData=JSON.parse(this.responseText)
+
+                var prodoucDetailsHTML=''
+
+                prodoucDetailsHTML+='<div class="col-5">'
+                prodoucDetailsHTML+='<div class="row">'
+                prodoucDetailsHTML+='<div class="col-4">'
+                prodoucDetailsHTML+='<div>'
+                prodoucDetailsHTML+=''+jsonData[0].product_thumbnails+''
+                prodoucDetailsHTML+='</div>'
+                prodoucDetailsHTML+='</div>'
+                prodoucDetailsHTML+='<div class="col-8">'
+                prodoucDetailsHTML+='<h3 style="font-size: 28px;font-weight: 500;color: #212529;margin-top: 14%;margin-left: 15%;">Product Details</h3>'
+                prodoucDetailsHTML+='<div style="display: flex;justify-content: end;">'
+                prodoucDetailsHTML+='<img width="6%;" src="/static/images/share(1).png">'
+                prodoucDetailsHTML+='</div>'
+                prodoucDetailsHTML+='<div style="margin-top: 3%; display: flex;justify-content: flex-start;">  '
+                prodoucDetailsHTML+='<img style="margin-left: 3%; style="width: 55%;" src="'+jsonData[0].p_image+'">'
+                prodoucDetailsHTML+='</div>'
+                prodoucDetailsHTML+='</div>'
+                prodoucDetailsHTML+='</div>'
+                
+                prodoucDetailsHTML+='</div>'
+                prodoucDetailsHTML+='<div class="col-7">'
+                prodoucDetailsHTML+='<h3 style="margin-top: 10%;">'+jsonData[0].product_name+'</h3>'
+                prodoucDetailsHTML+='<h4 style="color: #393d3f;font-weight: 400;">'+jsonData[0].product_description+'</h4>'
+                prodoucDetailsHTML+='<h2 style="color: red;margin-left: 0px;line-height: 50px;">&#8377 '+jsonData[0].product_price+' <span style="text-decoration: line-through;font-size: 18px;color: black;">&#8377 '+jsonData[0].product_original_price+'</span><br></h2>'
+                prodoucDetailsHTML+='<b style="margin-left: 1.5%;">Key Features</b>'
+                prodoucDetailsHTML+=''+jsonData[0].product_key_features+'<br>'
+                prodoucDetailsHTML+='<div style="width: 70%;">'
+                prodoucDetailsHTML+='<button style="width: 25%;margin-left: 10px;font-size:15px;" class="btn btn-primary" onclick="BuyNow('+jsonData[0].id+');" data-bs-toggle="modal" id="buyNowButton">Buy Now</button>'
+                prodoucDetailsHTML+='<button style="width: 25%;margin-left: 10px;background-color:#fb641b;font-size:15px;" type="button" class="btn btn-danger" data-bs-toggle="modal" onclick="getProductId('+jsonData[0].id+');" id="mycart">Add to Cart</button>'
+                prodoucDetailsHTML+='</div>'
+                prodoucDetailsHTML+='</div>'
+
+                document.getElementById('product-details').innerHTML=prodoucDetailsHTML
+            }
+
+
+        }
+        xhttpproductDetails.open("GET","http://127.0.0.1:8080/product-details",true)
+        xhttpproductDetails.send()
+
+        
+
+    </script>
+
 </body>
 </html>
+
