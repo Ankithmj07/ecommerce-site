@@ -14,6 +14,8 @@ Welcome to the Ecommerce GitHub repository! This project is a fully functional e
 - <h3>JavaScript:</h3> Enhancing user interactions and adding dynamic functionality.
 - <h3>Bootstrap: </h3> Utilized for responsive and mobile-first design, ensuring a consistent experience across devices.
 - <h3>jQuery:</h3> Streamlining DOM manipulation and event handling for a smoother user experience.
+- <h3>Python:</h3> Backend development powered by Python for server-side logic.
+- <h3>Flask:</h3> A micro web framework in Python used for building the backend and handling server-side functionality.
 
 ## Getting Started
 
