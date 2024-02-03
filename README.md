@@ -19,8 +19,8 @@ Welcome to the Ecommerce GitHub repository! This project is a fully functional e
 
 To run this ecommerce platform locally, follow the steps below:
 
-- <h3>1. Install XAMPP:</h3> 
+1. <h3>Install XAMPP:</h3> 
  - Download and install XAMPP to set up a local development environment with Apache and MySQL.
-- <h3>2. Start Apache and MySQL in XAMPP:</h3>
+2. <h3>Start Apache and MySQL in XAMPP:</h3>
  - Open XAMPP Control Panel.
  - Start the Apache and MySQL services.
