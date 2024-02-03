@@ -20,7 +20,26 @@ Welcome to the Ecommerce GitHub repository! This project is a fully functional e
 To run this ecommerce platform locally, follow the steps below:
 
 1. <h3>Install XAMPP:</h3> 
- - Download and install XAMPP to set up a local development environment with Apache and MySQL.
+   - Download and install XAMPP to set up a local development environment with Apache and MySQL.
 2. <h3>Start Apache and MySQL in XAMPP:</h3>
- - Open XAMPP Control Panel.
- - Start the Apache and MySQL services.
+   - Open XAMPP Control Panel.
+   - Start the Apache and MySQL services.
+3. ### Import Database:
+   - Access phpMyAdmin by visiting http://localhost/phpmyadmin/.
+   - Create a new database and import the provided database file.
+4. ### Open a New Terminal:
+   - Open a terminal or command prompt in the project directory.
+5. ### Create a Virtual Environment:
+   - (Optional but recommended) Create a virtual environment to isolate project dependencies. You can use virtualenv or venv for this purpose.
+     ```
+     cd myproject
+     py -3 -m venv .venv
+     
+     ```
+7. ### Install Requirements:
+   - Run the following command to install the required Python packages.
+     `pip install -r requirements.txt`
+8. ### Run the application:
+   - Start the local development server:
+     `python app.py`
+  
