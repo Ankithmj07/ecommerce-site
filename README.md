@@ -7,4 +7,4 @@ Welcome to the Ecommerce GitHub repository! This project is a fully functional e
 - **Myntra-inspired Wishlist Page:** The wishlist page takes its cues from Myntra, offering a visually appealing and user-friendly experience for customers to save and track their favorite items.
   
 ## Technologies Used
-- ###HTML
+- ### HTML
