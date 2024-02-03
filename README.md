@@ -11,5 +11,5 @@ Welcome to the Ecommerce GitHub repository! This project is a fully functional e
 ## Technologies Used
 - ## HTML:
   The backbone of the website, providing structure and content.
-- ## CSS:
+- <h3>CSS:</h3>
   Styling elements to ensure a visually appealing and responsive design. 
