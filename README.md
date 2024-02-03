@@ -48,4 +48,12 @@ To run this ecommerce platform locally, follow the steps below:
    - Start the local development server:
      
      ```python app.py```
+
+   - Open your web browser and navigate to http://localhost:8080 to access the ecommerce platform
+  
+Now, you should have the ecommerce platform up and running locally. Feel free to explore and customize it further according to your needs. If you encounter any issues, refer to the documentation or raise them in the repository's issue tracker. Happy coding!
+
+## Contributing
+
+Contributions are welcome! If you have ideas for improvements or new features, feel free to submit a pull request. Please follow the contribution guidelines outlined in the repository.
   
