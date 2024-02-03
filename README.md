@@ -31,15 +31,21 @@ To run this ecommerce platform locally, follow the steps below:
    - Open a terminal or command prompt in the project directory.
 5. ### Create a Virtual Environment:
    - (Optional but recommended) Create a virtual environment to isolate project dependencies. You can use virtualenv or venv for this purpose.
+
      ```
+     
      cd myproject
      py -3 -m venv .venv
      
      ```
+     
 7. ### Install Requirements:
    - Run the following command to install the required Python packages.
-     `pip install -r requirements.txt`
+   
+     ```pip install -r requirements.txt```
+     
 8. ### Run the application:
    - Start the local development server:
-     `python app.py`
+     
+     ```python app.py```
   
